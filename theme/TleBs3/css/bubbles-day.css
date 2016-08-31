@@ -1,0 +1,129 @@
+#menuContainer {
+    filter: none;
+    background: #00bff0;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: 0px 200px;
+    background-size: 100%;
+    background:  -moz-linear-gradient(top, #00bff0 0%, #c1f2ff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00bff0), color-stop(100%,#c1f2ff));
+    background: -webkit-linear-gradient(top, #00bff0 0%,#c1f2ff 100%);
+    background: -o-linear-gradient(top, #00bff0 0%,#c1f2ff 100%);
+    background: -ms-linear-gradient(top, #00bff0 0%,#c1f2ff 100%);
+    background: linear-gradient(to bottom, #00bff0 0%,#c1f2ff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bff0', endColorstr='#c1f2ff',GradientType=0 );
+    z-index: 1;
+}
+
+
+
+/**
+ * 	Main header
+ */
+
+#topMenu .links {
+    /*background-image: url(../img/fill-000000-10.png);*/
+}
+#stickyMenuContainer .links ul li a:hover,
+#topMenu .links ul li a:hover {
+    background-image: url(../img/fill-000000-10.png);
+}
+
+#topMenu .finder {
+    background-image: url(../img/top-menu-finder-bg.png);
+}
+#stickyMenuContainer .links ul:hover,
+#stickyMenuContainer {
+    background-color: #00ABD6;
+    background-color: rgba(22, 195, 229, .75);
+}
+
+/* Main header - media queries */
+@media (min-width: 768px) {
+}
+@media (max-width: 767px) {
+    #topMenu {
+        background-color: #009fc6;
+        background-color: rgba(0, 159, 198, .75);
+    }
+    #mainMenu {
+        /*background: rgba(0,0,0,.5);*/
+    }
+    #topMenu .menu-toggle i.fa {
+        background-color: rgba(0,0,0,.25);
+    }
+
+}
+
+/* Main header - sky background elements */
+#sky .hero {
+    background-image: url(../img/background/sun.png);
+    background-size: 256px;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 613px;
+    top: 77px;
+    max-height: 413px;
+    width: 80%;
+    height: 100%;
+
+}
+
+#top #sky .hero {
+    opacity: 0.1;
+    -webkit-filter: brightness(0);
+}
+
+#top #sky {
+    z-index: 0 !important;
+}
+
+#sky .side1 {
+    background-image: url(../img/background/cloud-left.png);
+    position: relative;
+    bottom: 239px;
+    left: 47px;
+    background-size: 175px;
+    background-repeat: no-repeat;
+    height: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    /*opacity: .5;*/
+}
+
+#top #sky .side1 {
+    opacity: 0.1;
+    -webkit-filter: brightness(0);
+}
+
+#sky .side2 {
+    background-image: url(../img/background/cloud-right.png);
+    position: relative;
+    bottom: 478px;
+    background-repeat: no-repeat;
+    background-size: 220px;
+    left: 920px;
+    height: 100%;
+    /*    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+        opacity: .7;*/
+}
+
+#top #sky .side2 {
+    opacity: 0.1;
+    -webkit-filter: brightness(0);
+    height: 94px;
+    bottom: 610px;
+}
+
+/* Sky media queries */
+@media (max-width: 767px) {
+    #sky .hero {
+        top: 6em;
+    }
+    #sky .side1 {
+        top: 10em;
+        width: 30%;
+    }
+    #sky .side2 {
+        top: 0;
+    }
+}

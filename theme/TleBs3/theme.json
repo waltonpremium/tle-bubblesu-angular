@@ -1,0 +1,31 @@
+{
+	"name" : "TLE BS3",
+	"description" : "Theme for TLE based on Bootstrap 3",
+	"screenshot" : "/screenshot.png",
+	
+	"author" : "Jen Huang",
+	"authorEmail" : "mhuang@tlecorp.com",
+	"authorUrl" : "",
+	
+	"menus" : [
+		"main",
+		"top-menu",
+		"footer"
+		
+	],
+
+	"regions" : [
+		"left",
+		"right",
+		"homepage",
+		"slider"
+	],
+	
+	"_name" : "Bootstrap 3 for Croogo",
+	"_description" : "Basic Croogo theme using Bootstrap 3",
+	"_screenshot" : "/screenshot.png",
+
+	"_author" : "Walther Lalk",
+	"_authorEmail" : "emailme@waltherlalk.com",
+	"_authorUrl" : "https://twitter.com/dakotairene"
+}

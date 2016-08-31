@@ -1,0 +1,167 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bulletine Board</title>
+        <meta name="description" content="">
+
+        <link rel="icon" href="favicon.png" />
+
+        <link rel="stylesheet" href="sources/css/normalize.css">
+        <link rel="stylesheet" href="build/styles.min.css">
+
+    </head>
+    <body>
+        <div id="bulletin_placeholder"></div>
+
+        <script src="sources/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="sources/vendor/jquery-1.11.3.min.js"></script>
+        <script src="sources/vendor/jquery-ui.min.js"></script>
+        <script src="sources/vendor/jquery.ui.touch-punch.min.js"></script>
+
+        <script src="build/scripts.min.js"></script>
+        <script src="build/app.js"></script>
+
+        <script>
+            var b = new window.BulletinApp({
+                apiKey: 'c4b035a227d972d992105b13e651ed73',
+                content: {
+                    achieves: [
+                        {
+                            title: "Bubbles U - Chills Out",
+                            img_url: "//cdn.bubblesu.com/images/bulletine/achieve_icon.jpg",
+                            medals:[
+                                {
+                                    title: "Antarctica",
+                                    achieved: true
+                                },
+                                {
+                                    title: "Arctic Circle",
+                                    achieved: true
+                                },
+                                {
+                                    title: "Alaska",
+                                    achieved: false
+                                },
+                                {
+                                    title: "Russia",
+                                    achieved: false
+                                }
+                            ],
+                            trophy_achieved: false
+                        },
+                        {
+                            title: " Bubbles U - Chills Out",
+                            img_url: "//cdn.bubblesu.com/images/bulletine/achieve_icon.jpg",
+                            medals:[
+                                {
+                                    title: "Antarctica",
+                                    achieved: true
+                                },
+                                {
+                                    title: "Arctic Circle",
+                                    achieved: true
+                                },
+                                {
+                                    title: "Alaska",
+                                    achieved: true
+                                },
+                                {
+                                    title: "Russia",
+                                    achieved: true
+                                }
+                            ],
+                            trophy_achieved: true
+                        },
+                        {
+                            title: " Bubbles U - Chills Out",
+                            img_url: "//cdn.bubblesu.com/images/bulletine/achieve_icon.jpg",
+                            medals:[
+                                {
+                                    title: "Antarctica",
+                                    achieved: true
+                                },
+                                {
+                                    title: "Arctic Circle",
+                                    achieved: true
+                                },
+                                {
+                                    title: "Alaska",
+                                    achieved: true
+                                },
+                                {
+                                    title: "Russia",
+                                    achieved: false
+                                }
+                            ],
+                            trophy_achieved: false
+                        }
+                    ],
+
+//                    heart_list: [],
+                    week_sticker: {
+                        opt: 'lion_on_skate',
+                        w: 44,
+                        h: 72,
+                        img_url: '//cdn.bubblesu.com/images/bulletine/week_sticker.png'
+                    }
+                },
+                onLoad: function() {
+
+//                    this.addSticker('app', 'game', -1, -1, {img_url:"//cdn.bubblesu.com/images/bulletine/clipped_game.jpg"});
+                    this.set('heart_list', [{
+                        type: 'app',
+                        opt: 'game',
+                        heart_id: 'xysu',
+                        img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'
+                    }])
+                },
+                serverWaitTimeOut: 0,
+                onHeart: function(heart_id){
+                    console.log('On Heart ', heart_id);
+
+                    this.set('heart_list', [{
+                        type: 'app',
+                        opt: 'game',
+                        heart_id: 'xysu',
+                        img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'
+                    },{
+                        type: 'app',
+                        opt: 'music',
+                        heart_id: 'xys23u',
+                        img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'
+                    },{
+                        type: 'app',
+                        opt: 'movie',
+                        heart_id: '12xysu',
+                        img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'
+                    }])
+                },
+                onPlay: function(heart_id){
+                    console.log('On Play ', heart_id);
+
+                    this.set('heart_list', [{
+                        type: 'app',
+                        opt: 'game',
+                        heart_id: 'xysu',
+                        img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'
+                    },{
+                        type: 'app',
+                        opt: 'movie',
+                        heart_id: '12xysu',
+                        img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'
+                    }])
+                },
+                onShare: function(heart_id){
+                    console.log('On Share ', heart_id);
+                },
+                onRemove: function(heart_id){
+                    console.log('On Remove ', heart_id);
+                    return true;
+                }
+            });
+        </script>
+
+    </body>
+</html>

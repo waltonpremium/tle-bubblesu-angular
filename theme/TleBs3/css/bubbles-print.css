@@ -1,0 +1,63 @@
+@page {
+	size: 8.5in 11in;
+	margin: .8in;
+}
+html, body {
+	margin: 0!important;
+	padding: 0!important;
+	width: 100%;
+}
+body, #content {
+	font-size: 10pt!important;
+	color: #000!important;
+}
+#contentWrapper {
+	//margin-bottom: 1em;
+	width: 100%;
+}
+.container {
+	width: 100%!important;
+}
+#printMenu {
+	text-align: center;
+}
+
+#pageWrapper {
+	width: 100%;
+	margin: 0;
+}
+
+#pageWrapper .middle {
+	width: 100%;
+	display: block;
+}
+
+.page-body {
+	border-radius: 1.5em!important;
+	min-height: 0!important;
+	border: 2px solid #ddd;
+}
+
+#content .page-body > div {
+	padding: 1em;
+}
+
+.spinner {
+	//display: none;
+}
+
+.spinner-content > div {
+	display: block!important;
+}
+
+.spinner-content > div > div {
+	height: auto!important;
+}
+
+#footer {
+	font-size: 1em;
+}
+
+#footer .row .col-sm-10 + .text-center {
+	width: 100%;
+}

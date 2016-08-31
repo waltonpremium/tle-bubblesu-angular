@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'KBPlanetEarth';
+    src:  url('../fonts/KBPlanetEarth.ttf.woff') format('woff'),
+    url('../fonts/KBPlanetEarth.ttf.svg#KBPlanetEarth') format('svg'),
+    url('../fonts/KBPlanetEarth.ttf.eot'),
+    url('../fonts/KBPlanetEarth.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}

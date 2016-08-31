@@ -1,0 +1,100 @@
+
+#hamburger-menu {
+    // Effect lengths
+    $individual-button-length: 0.2s;
+    $show-menu-length: 0.2s;
+    $hide-menu-length: 0.2s;
+
+    position: fixed;
+<<<<<<< HEAD
+    top: 28px;
+    left: 28px;
+=======
+    left: 28px;
+    top: 28px;
+>>>>>>> 132ac38390ffbf0450a242856b0b699746474612
+    z-index: 9;
+    .dropdown-toggle {
+        background: url("//cdn.bubblesu.com/images/menu/Hamburger-Menu.png") no-repeat center center;
+        width: 99px;
+        height: 99px;
+        display: block;
+        @media(max-width:767px){
+            background-image: url("//cdn.bubblesu.com/images/menu/mobile-hamburger-menu.jpg");
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .close-menu {
+        @include transform(scale(.7));
+        @include transition(.5s all);
+        opacity: 0;
+    }
+
+    &.open .close-menu {
+        @include transform(scale(1));
+        opacity: 1;
+    }
+
+    .dropdown-icons {
+        width: 160px;
+        height: 0;
+        overflow: hidden;
+        a {
+            padding: 5px;
+            width: 50%;
+            float: left;
+            opacity: 0;
+            visibility: hidden;
+            @include transform(scale3d(.3, .3, .3));
+            @include transition($individual-button-length all);
+        }
+        $hamburger-colors: (#943885, #ED008C, #F7AA1D, #39B54A, #00AEEF, #29B5CB, #A6CF3C, #58585A);
+        @for $i from 1 through 8 {
+            a:nth-child(#{$i}){
+                -webkit-transition-delay: ($hide-menu-length / 8) * (8 - $i);
+                transition-delay: ($hide-menu-length / 8) * (8 - $i);
+                background: nth($hamburger-colors, $i);
+            }
+        }
+    }
+
+    &.open .dropdown-icons {
+        height: auto;
+        a {
+            opacity: 1;
+            visibility: visible;
+            @include transform(scale3d(1, 1, 1));
+            &:hover {
+                opacity: 1;
+                -webkit-animation-name: buzz;
+                animation-name: buzz;
+                -webkit-animation-duration: 0.15s;
+                animation-duration: 0.15s;
+                -webkit-animation-delay: 0;
+                animation-delay: 0;
+                -webkit-animation-timing-function: linear;
+                animation-timing-function: linear;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+            }
+        }
+        @for $i from 1 through 8 {
+            a:nth-child(#{$i}){
+                -webkit-transition-delay: ($show-menu-length / 8) * $i;
+                transition-delay: ($show-menu-length / 8) * $i;
+            }
+        }
+    }
+    // Smallscreen devices
+    @media(max-width:767px){
+        left: 0;
+        top: 0;
+        margin-top: 0;
+        opacity: .5;
+        &:hover, &.open {
+            opacity: 1;
+        }
+    }
+}

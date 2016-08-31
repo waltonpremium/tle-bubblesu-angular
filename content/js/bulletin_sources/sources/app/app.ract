@@ -1,0 +1,254 @@
+<div id="blt_bulletin_app" class="{{#if no_animation}}blt_no_animation{{/if}}">
+
+    <style>
+        #bulletin_placeholder,
+        #bulletin_placeholder *:after,
+        #bulletin_placeholder *:before {
+            font-size: {{scale_factor}}px;
+        }
+
+    </style>
+    <div class="touch_point" id="touch_point_start"></div>
+    <div class="touch_point" id="touch_point_center"></div>
+    <div class="touch_point" id="touch_point_touch"></div>
+
+
+    <div class="blt_content" style="opacity: 1">
+        <div class="blt_header_logo">
+          {{#avatar_sticker}}
+              <div class="blt_sticker_avatar_sticker" sticker_type="avatar" sticker_opt="{{opt}}"
+                   style="background-image: url({{img_url}}); background-size: {{w/10}}em {{h/10}}em; width:{{w/10}}em; height:{{h/10}}em;"></div>
+          {{/avatar_sticker}}
+        </div>
+
+        <div id="blt_board" class="blt_board-{{data.border_color}}  blt_board-{{state}}">
+            <div class="blt_board_loading blt_timer-loader">
+                Loading
+            </div>
+            <div class="blt_board_content">
+
+                <div class="blt_board_working_area">
+                    <style>
+                        .blt_sticker_wrapper {
+                            display: none;
+                        }
+
+                          *[board_i="{{data.cur_board}}"] {
+                            display: block;
+                        }
+                    </style>
+
+                  {{#data.boards:i }}
+                    {{# stickers:j }}
+                        <Sticker sticker_i="{{j}}" board_i="{{i}}" data="{{.}}"></Sticker>
+                    {{/stickers}}
+                  {{/data.boards}}
+                </div>
+
+                <div class="blt_alphabet_box_wrapper{{#if is_alphabet_shown}} active{{/if}}">
+
+                    <div class="blt_alphabet_label" on-click="set('is_alphabet_shown', !is_alphabet_shown)"></div>
+
+                    <div class="blt_alphabet_box_hidecover">
+                        <div class="blt_alphabet_box">
+
+                            <div class="blt_alphabet_box_content">
+                                <div class="blt_alphabet_box_info">
+                                    Drag letter to your Bulletin Board.
+                                </div>
+                                <div class="blt_arrow blt_arrow_up"></div>
+                                <div class="blt_arrow blt_arrow_down"></div>
+
+                                <div class="blt_alphabet_box_content_scrollbox_cover ">
+                                    <div class="blt_alphabet_box_content_scrollbox scroll_lock">
+                                        <div class="blt_alphabet_box_content_scrollbox_correct_frame">
+                                            <i class="blt_letter blt_letter-a" sticker_type="letter"
+                                               sticker_opt="a"></i>
+                                            <i class="blt_letter blt_letter-b" sticker_type="letter"
+                                               sticker_opt="b"></i>
+                                            <i class="blt_letter blt_letter-c" sticker_type="letter"
+                                               sticker_opt="c"></i>
+                                            <i class="blt_letter blt_letter-d" sticker_type="letter"
+                                               sticker_opt="d"></i>
+                                            <i class="blt_letter blt_letter-e" sticker_type="letter"
+                                               sticker_opt="e"></i>
+                                            <i class="blt_letter blt_letter-f" sticker_type="letter"
+                                               sticker_opt="f"></i>
+                                            <i class="blt_letter blt_letter-g" sticker_type="letter"
+                                               sticker_opt="g"></i>
+                                            <i class="blt_letter blt_letter-h" sticker_type="letter"
+                                               sticker_opt="h"></i>
+                                            <i class="blt_letter blt_letter-i" sticker_type="letter"
+                                               sticker_opt="i"></i>
+                                            <i class="blt_letter blt_letter-j" sticker_type="letter"
+                                               sticker_opt="j"></i>
+                                            <i class="blt_letter blt_letter-k" sticker_type="letter"
+                                               sticker_opt="k"></i>
+                                            <i class="blt_letter blt_letter-l" sticker_type="letter"
+                                               sticker_opt="l"></i>
+                                            <i class="blt_letter blt_letter-m" sticker_type="letter"
+                                               sticker_opt="m"></i>
+                                            <i class="blt_letter blt_letter-n" sticker_type="letter"
+                                               sticker_opt="n"></i>
+                                            <i class="blt_letter blt_letter-o" sticker_type="letter"
+                                               sticker_opt="o"></i>
+                                            <i class="blt_letter blt_letter-p" sticker_type="letter"
+                                               sticker_opt="p"></i>
+                                            <i class="blt_letter blt_letter-q" sticker_type="letter"
+                                               sticker_opt="q"></i>
+                                            <i class="blt_letter blt_letter-r" sticker_type="letter"
+                                               sticker_opt="r"></i>
+                                            <i class="blt_letter blt_letter-s" sticker_type="letter"
+                                               sticker_opt="s"></i>
+                                            <i class="blt_letter blt_letter-t" sticker_type="letter"
+                                               sticker_opt="t"></i>
+                                            <i class="blt_letter blt_letter-u" sticker_type="letter"
+                                               sticker_opt="u"></i>
+                                            <i class="blt_letter blt_letter-v" sticker_type="letter"
+                                               sticker_opt="v"></i>
+                                            <i class="blt_letter blt_letter-w" sticker_type="letter"
+                                               sticker_opt="w"></i>
+                                            <i class="blt_letter blt_letter-x" sticker_type="letter"
+                                               sticker_opt="x"></i>
+                                            <i class="blt_letter blt_letter-y" sticker_type="letter"
+                                               sticker_opt="y"></i>
+                                            <i class="blt_letter blt_letter-z" sticker_type="letter"
+                                               sticker_opt="z"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="blt_pagination">-->
+                <!--<div class="blt_arrow blt_arrow_left" on-click="prev_board()"></div>-->
+                <!--<div class="blt_arrow blt_arrow_right" on-click="next_board()"></div>-->
+                <!--</div>-->
+
+                <div class="blt_trashes">
+                    <!--<div class="blt_trash blt_trash_music" on-click="createSticker({type:'app', opt:'music', img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'})"></div>-->
+                    <!--<div class="blt_trash blt_trash_book" on-click="createSticker({type:'app', opt:'book', img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'})"></div>-->
+                    <!--<div class="blt_trash blt_trash_movie" on-click="createSticker({type:'app', opt:'movie', img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'})"></div>-->
+                    <!--<div class="blt_trash blt_trash_pen" on-click="createSticker({type:'app', opt:'pen', img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'})"></div>-->
+                    <!--<div class="blt_trash blt_trash_game" on-click="createSticker({type:'app', opt:'game', img_url:'//cdn.bubblesu.com/images/bulletine/clipped_game.jpg'})"></div>-->
+
+                    <div class="blt_trash blt_trash_music"></div>
+                    <div class="blt_trash blt_trash_book"></div>
+                    <div class="blt_trash blt_trash_movie blt_trash_recipe"></div>
+                    <div class="blt_trash blt_trash_pen blt_trash_phonic"></div>
+                    <div class="blt_trash blt_trash_game"></div>
+                </div>
+            </div>
+
+            <div class="blt_huge_pagination">
+                <div class="blt_huge_pagination_left" on-click="prev_board()"></div>
+                <div class="blt_huge_pagination_right" on-click="next_board()"></div>
+            </div>
+
+            <div class="blt_pagination_dots">
+              {{#data.boards:i }}
+                  <div class="blt_pagination_dot {{#if i == data.cur_board}} active{{/if}}"
+                       on-click="set('data.cur_board', i)"></div>
+              {{/data.boards }}
+            </div>
+        </div>
+
+
+        <div id="blt_under_board">
+            <div id="blt_wheel_wrapper">
+                <div id="blt_wheel">
+                    <div id="blt_wheel_rotate_area"></div>
+
+                    <div class="blt_sticker blt_sticker_heart" sticker_type="deco" sticker_opt="heart"></div>
+                    <div class="blt_sticker blt_sticker_clever" sticker_type="deco" sticker_opt="clever"></div>
+                    <div class="blt_sticker blt_sticker_star" sticker_type="deco" sticker_opt="star"></div>
+                    <div class="blt_sticker blt_sticker_moon" sticker_type="deco" sticker_opt="moon"></div>
+
+                    <div class="blt_sticker blt_sticker_rostar" sticker_type="deco" sticker_opt="rostar"></div>
+                    <div class="blt_sticker blt_sticker_music" sticker_type="deco" sticker_opt="music"></div>
+                    <div class="blt_sticker blt_sticker_crown" sticker_type="deco" sticker_opt="crown"></div>
+                    <div class="blt_sticker blt_sticker_butterfly" sticker_type="deco" sticker_opt="butterfly"></div>
+                </div>
+            </div>
+            <div id="blt_style_section">
+                <div class="blt_color_selector_box">
+                    <div class="blt_color_plate yellow" on-click="set('data.border_color', 'yellow')"></div>
+                    <div class="blt_color_plate green" on-click="set('data.border_color', 'green')"></div>
+                    <div class="blt_color_plate violet" on-click="set('data.border_color', 'violet')"></div>
+                    <div class="blt_color_plate orange" on-click="set('data.border_color', 'orange')"></div>
+                    <div class="blt_color_plate blue" on-click="set('data.border_color', 'blue')"></div>
+                </div>
+
+            </div>
+
+            <div id="blt_sticker_week">
+                <div id="blt_sticker_week_label">
+                    Drag sticker to your Bulletin Board
+                </div>
+              {{#week_sticker}}
+                  <div class="blt_sticker_week_sticker" sticker_type="week" sticker_opt="{{opt}}"
+                       style="background-image: url({{img_url}}); background-size: {{w/10}}em {{h/10}}em; width:{{w/10}}em; height:{{h/10}}em;"></div>
+              {{/week_sticker}}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div id="blt_achieve_slide" style="opacity: 1">
+    <div class="blt_header" on-click="toggle-achievement">
+        <div class="blt_label"></div>
+    </div>
+    <div class="blt_achieve_content">
+        <div class="blt_content">
+          {{#achieves}}
+              <div class="blt_achieve_item">
+                  <h2 class="blt_title">
+                      <div class="blt_achieve_item_icon" style="background-image: url({{img_url}}) "></div>
+                    {{title}}
+                  </h2>
+                  <div class="blt_medals_container">
+                    {{#medals}}
+                        <div class="blt_medal {{#achieved}} active{{/achieved}}">
+                            <div>{{title}}</div>
+                        </div>
+                    {{/medals}}
+
+                      <div class="blt_trophy {{#trophy_achieved}} active{{/trophy_achieved}}" sticker_type="trophy"
+                           sticker_label="{{title}}"></div>
+                  </div>
+              </div>
+          {{/achieves}}
+
+            <!--<div class="blt_achieve_item">-->
+            <!--<h2 class="blt_title">-->
+            <!--<div class="blt_achieve_item_icon"></div>-->
+            <!--Bubbles U - Chills Out-->
+            <!--</h2>-->
+            <!--<div class="blt_medals_container">-->
+            <!--<div class="blt_medal active">Antarctica</div>-->
+            <!--<div class="blt_medal active">Arctic Circle</div>-->
+            <!--<div class="blt_medal active">Alaska</div>-->
+            <!--<div class="blt_medal active">Russia</div>-->
+            <!--<div class="blt_trophy active" sticker_type="trophy"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="blt_achieve_item">-->
+            <!--<h2 class="blt_title">-->
+            <!--<div class="blt_achieve_item_icon"></div>-->
+            <!--Bubbles U - Lionstein Lab-->
+            <!--</h2>-->
+            <!--<div class="blt_medals_container">-->
+            <!--<div class="blt_medal active">Color Mixing</div>-->
+            <!--<div class="blt_medal active">Shapes Missing</div>-->
+            <!--<div class="blt_medal ">Built It!</div>-->
+            <!--<div class="blt_medal ">Engineering</div>-->
+            <!--<div class="blt_medal ">Sink or Float?</div>-->
+            <!--<div class="blt_trophy "></div>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.components .carousel-control,
+.left-sidebar .block-left-tle-academies:before,
+#stickyMenuContainer .finder,
+#sky > div,
+#mainSlider .slide.image,
+#homepage .tile,
+.spinner .wheel,
+.spinner:after {
+	-ms-behavior: url(/js/backgroundsize.min.htc);
+}

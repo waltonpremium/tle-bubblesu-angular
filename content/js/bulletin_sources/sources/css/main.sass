@@ -1,0 +1,804 @@
+@import "load_spinner"
+@import "alphabet"
+
+@mixin transform($text)
+  -webkit-transform: $text
+  -ms-transform: $text
+  transform: $text
+  -webkit-backface-visibility: hidden
+
+@mixin sticker_gen($name, $w, $h, $top:0)
+  .blt_sticker_#{$name}
+    background: url('//cdn.bubblesu.com/images/bulletine/sticker_#{$name}.png') no-repeat 50% 100%
+    background-size: $w $h
+    width: $w
+    height: $h
+    margin: $top auto 0
+
+@mixin img_block($img, $w, $h, $bg_attr:false)
+  @if $bg_attr == false
+    background: url('//cdn.bubblesu.com/images/bulletine/#{$img}')
+  @else
+    background: url('//cdn.bubblesu.com/images/bulletine/#{$img}') $bg_attr
+  background-size: $w $h
+  width: $w
+  height: $h
+
+@mixin absolute_cover($t, $r, $b, $l)
+  position: absolute
+  top: $t
+  bottom: $b
+  left: $l
+  right: $r
+
+@mixin unselectable
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  -o-user-select: none
+  user-select: none
+
+@mixin create_board_border($col)
+  background: $col
+  box-shadow: 0 -1px/10px*1em 2px/10px*1em change-color($col, $lightness: 0%, $alpha: 0.5) inset, 0 1px/10px*1em 1px/10px*1em change-color($col, $lightness: 100%, $alpha: 1) inset
+
+
+#bulletin_placeholder
+  background: #1dc4fb
+  overflow-x: hidden
+  font-family: arial, sans-serif
+  @include unselectable()
+  //background: url(//cdn.bubblesu.com/images/bulletine/bulletinBoard.jpg) 50% 0
+
+  #blt_bulletin_app
+    padding-top: 49px/10px*1em
+
+    &.blt_no_animation
+      *, *:after, *:before
+        transition: none!important
+
+  .blt_content
+    margin: auto
+    width: 600px/10px*1em
+
+    &:after,
+    &:before
+      content: ' '
+      clear: both
+      display: block
+
+  .blt_header_logo
+    margin-bottom: 8px/10px*1em
+    display: inline-block
+
+    &:before
+      content: ' '
+      float: right
+      @include img_block('header_logo.png', 235px/10px*1em, 88px/10px*1em)
+      margin-left: 5px/10px*1em
+
+    .blt_sticker_avatar_sticker
+      float: right
+
+  #blt_board
+    height: 455px/10px*1em
+    width: 600px/10px*1em
+    position: relative
+
+
+    .blt_board_loading
+      display: none
+      position: absolute
+      top: 45%
+      left: 47%
+      margin-left: -8px/10px*1em
+      z-index: 100
+
+    &.blt_board-loading_board
+      .blt_board_working_area
+        display: none
+      .blt_board_loading
+        display: block
+
+
+    &:after
+      content: ' '
+      z-index: 1
+      @include absolute_cover(0,0,0,0)
+      box-shadow: 0 1px/10px*1em 2px/10px*1em rgba(255, 255, 255, 0.65) inset, 0 -1px/10px*1em 2px/10px*1em rgba(0, 0, 0, 0.45) inset
+
+    &.blt_board-yellow:after
+      background: #fcdb07
+    &.blt_board-green:after
+      background: #a7cd48
+    &.blt_board-violet:after
+      background: #953786
+    &.blt_board-orange:after
+      background: #f9aa1c
+    &.blt_board-blue:after
+      background: #34b5c9
+
+    @each $app_opt in music, game, book, pen, movie, phonic, recipe
+      &.blt_dragging_element_app_#{$app_opt}
+        &.blt_trashes_animation
+          .blt_trash_#{$app_opt}
+            -webkit-animation: trash_feedback .3s infinite
+            animation: trash_feedback .3s infinite
+
+
+        .blt_trash:not(.blt_trash_#{$app_opt})
+          opacity: .3
+        .blt_trash_#{$app_opt}
+          @include transform(scale(1.3))
+
+    .blt_board_content
+      @include absolute_cover(18px/10px*1em,18px/10px*1em,18px/10px*1em,18px/10px*1em)
+      background: url(//cdn.bubblesu.com/images/bulletine/board_bg.png) center
+      background-size: 560px/10px*1em 419px/10px*1em
+      z-index: 3
+      box-shadow: 0 1px/10px*1em 2px/10px*1em rgba(255, 255, 255, 0.65), 0 -1px/10px*1em 2px/10px*1em rgba(0, 0, 0, 0.45)
+
+
+
+      .blt_board_working_area
+        @include absolute_cover(0,87px/10px*1em,51px/10px*1em,0)
+        z-index: 3
+
+
+
+        .blt_sticker_wrapper
+          transform-origin: 50% 50%
+          position: absolute
+          cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+
+
+          &:hover .blt_clipped_item_action,
+          &.hover .blt_clipped_item_action
+            display: block!important
+
+          &.blt_ui-draggable-dragging .blt_clipped_item:hover .blt_clipped_item_action
+            display: none
+
+          .blt_clipped_item
+            position: relative
+            padding-top: 10px/10px*1em
+
+            .blt_clipped_item_magnet
+              position: absolute
+              top: -15px/10px*1em
+              left: 50%
+              margin-left: -20px/10px*1em
+              z-index: 1
+              display: block
+
+            &#{_music} .blt_clipped_item_magnet
+              @include img_block('clipped_music.png', 40px/10px*1em, 40px/10px*1em)
+
+            &#{_game} .blt_clipped_item_magnet
+              @include img_block('clipped_game.png', 40px/10px*1em, 40px/10px*1em)
+
+            &#{_book} .blt_clipped_item_magnet
+              @include img_block('clipped_book.png', 40px/10px*1em, 40px/10px*1em)
+
+            &#{_pen} .blt_clipped_item_magnet
+              @include img_block('clipped_pen.png', 40px/10px*1em, 40px/10px*1em)
+
+            &#{_movie} .blt_clipped_item_magnet
+              @include img_block('clipped_movie.png', 40px/10px*1em, 40px/10px*1em)
+
+            &#{_phonic} .blt_clipped_item_magnet
+              @include img_block('clipped_phonics.png', 40px/10px*1em, 40px/10px*1em)
+
+            &#{_recipe} .blt_clipped_item_magnet
+              @include img_block('clipped_recipe.png', 40px/10px*1em, 40px/10px*1em)
+
+
+
+            .blt_clipped_item_action
+              width: 22px/10px*1em
+              height: 22px/10px*1em
+              border-radius: 100%
+              background: rgba(0, 0, 0, 0.60) no-repeat 50% 50%
+              display: none
+              position: absolute
+              transition: .2s
+
+              &:hover
+                background-color: rgba(0, 0, 0, 0.90)
+              &:active
+                background-color: rgba(0, 0, 0, 1)
+                @include transform(scale(.8))
+
+              &:nth-child(1)
+                top: 30px/10px*1em
+                left: 50%
+                margin-left: -11px/10px*1em
+                background-size: 11px/10px*1em 12px/10px*1em
+
+                //&:nth-child(1)
+                //  top: 20px/10px*1em
+                //  left: 4px/10px*1em
+                //  background-size: 14px/10px*1em 10px/10px*1em
+
+                //&:nth-child(2)
+                //top: 30px/10px*1em
+                //  left: 50%
+                //  margin-left: -11px/10px*1em
+                //  background-size: 11px/10px*1em 12px/10px*1em
+
+                //&:nth-child(3)
+                //  top: 20px/10px*1em
+                //  right: 4px/10px*1em
+                //  background-size: 10px/10px*1em 9px/10px*1em
+
+              &.blt_clipped_item_action_heart
+                background-image: url(//cdn.bubblesu.com/images/bulletine/app_sticker_action_heart.png)
+              &.blt_clipped_item_action_play
+                background-image: url(//cdn.bubblesu.com/images/bulletine/app_sticker_action_play.png)
+              &.blt_clipped_item_action_share
+                background-image: url(//cdn.bubblesu.com/images/bulletine/app_sticker_action_share.png)
+
+            .blt_clipped_item_img
+              @include img_block('clipped_game.jpg', 76px/10px*1em, 57px/10px*1em)
+              width: 76px/10px*1em
+              height: 57px/10px*1em
+              border: 3px/10px*1em solid #fff
+              box-shadow: 1px/10px*1em 1px/10px*1em 1px/10px*1em rgba(0, 0, 0, 0.3)
+              transform-origin: 50% 0
+              background-size: 76px/10px*1em 57px/10px*1em
+              @include unselectable()
+
+
+
+          @for $i from -10 to 11
+            .angle#{$i} > *
+              @include transform(rotate(#{$i*2/3}deg))
+
+          .blt_trophy_label
+            display: block
+            width: 72px/10px*1em
+            text-align: center
+            font-weight: bold
+            color: #FFDF49
+            text-shadow: 0 1px/10px*1em 1px/10px*1em rgb(173, 82, 0)
+
+          > * > *
+            display: block
+            position: relative
+
+
+      .blt_board_working_area > *
+        position: absolute
+
+
+      .blt_pagination
+        position: absolute
+        bottom: 5px/10px*1em
+        left: 18px/10px*1em
+        z-index: 2
+        margin: 0
+
+        .blt_arrow
+          background: url(//cdn.bubblesu.com/images/bulletine/board_arrows.png)
+          background-size: 91px/10px*1em 41px/10px*1em
+          width: 45px/10px*1em
+          height: 41px/10px*1em
+          float: left
+          cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+
+          &:hover
+            opacity: .6
+          &:active
+            opacity: .9
+
+          &.blt_arrow_left
+            background-position: 0 0
+
+          &.blt_arrow_right
+            background-position: 100% 0
+
+      .blt_trashes
+        width: 183px/10px*1em
+        height: 41px/10px*1em
+        position: absolute
+        left: 50%
+        margin-left: -91px/10px*1em
+        bottom: 8px/10px*1em
+        z-index: 2
+
+        .blt_trash
+          background: url(//cdn.bubblesu.com/images/bulletine/trashes.png) no-repeat
+          background-size: 183px/10px*1em 41px/10px*1em
+          width: 16%
+          margin-right: 5%
+          float: left
+          height: 100%
+          transition: .2s
+
+          &:last-child
+            margin-right: 0
+
+          &.blt_trash_book
+            background-position: -38px/10px*1em 0
+          &.blt_trash_movie
+            background-position: -38*2px/10px*1em 0
+          &.blt_trash_pen
+            background-position: -38*3px/10px*1em 0
+          &.blt_trash_game
+            background-position: -38*4px/10px*1em 0
+
+
+
+
+      .blt_alphabet_box_wrapper
+        position: absolute
+        right: 0
+        top: 14px/10px*1em
+        z-index: 2
+        width: 0px/10px*1em
+        transition: .3s width
+        height: 330px/10px*1em
+
+        &.active
+          width: 61px/10px*1em
+
+        .blt_alphabet_label
+          width: 26px/10px*1em
+          background: url(//cdn.bubblesu.com/images/bulletine/alphabet_box.png) no-repeat
+          background-size: 108px/10px*1em 330px/10px*1em
+          height: 50px/10px*1em
+          background-position: 0 -12px/10px*1em
+          position: absolute
+          left: -26px/10px*1em
+          top: 12px/10px*1em
+          cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+
+        .blt_alphabet_box_hidecover
+          overflow: hidden
+          @include absolute_cover(0, 0, 0, -1px/10px*1em)
+
+          .blt_alphabet_box
+            background: url(//cdn.bubblesu.com/images/bulletine/alphabet_box.png) no-repeat
+            background-size: 108px/10px*1em 330px/10px*1em
+            height: 330px/10px*1em
+            background-position: -25px/10px*1em 0
+            position: relative
+            left: 0
+            width: 62px/10px*1em
+
+
+
+            .blt_alphabet_box_content
+              @include absolute_cover(12px/10px*1em, 4px/10px*1em, 4px/10px*1em, 10px/10px*1em)
+
+              .blt_alphabet_box_info
+                text-align: center
+                font-weight: bold
+                line-height: 1.4em
+                font-size: 0.7em
+
+              .blt_alphabet_box_content_scrollbox_cover
+                overflow: hidden
+                @include absolute_cover(62px/10px*1em, 0, 30px/10px*1em, 0)
+
+                .blt_alphabet_box_content_scrollbox
+                  @include absolute_cover(0, -30px, 0, 0)
+                  overflow-y: scroll
+
+                  .blt_alphabet_box_content_scrollbox_correct_frame
+                    width: 4.9em
+                    overflow: hidden
+
+
+                  .blt_letter
+                    display: block
+                    margin: 5px/10px*1em auto
+
+
+              .blt_arrow
+                cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+                position: absolute
+                left: 5px/10px*1em
+
+                &:hover
+                  opacity: .6
+                &:active
+                  opacity: .9
+
+                &.blt_arrow_up
+                  @include img_block('arrow_up.png', 37px/10px*1em, 16px/10px*1em)
+                  top: 41px/10px*1em
+                  background-position: 0 0
+
+                &.blt_arrow_down
+                  @include img_block('arrow_down.png', 37px/10px*1em, 16px/10px*1em)
+                  bottom: 10px/10px*1em
+                  background-position: 100% 0
+
+
+    .blt_huge_pagination
+      @include absolute_cover(0, -49px/10px*1em, 0, -49px/10px*1em)
+
+      >*
+        cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+        transition: .2s opacity
+
+      >*:hover,
+      >*.hover
+        opacity: .6
+
+      .blt_huge_pagination_left
+        float: left
+        //@include img_block('huge_pagination_left.jpg', 49px/10px*1em, 455px/10px*1em)
+        background: url('../img/bulletin/huge_pagination_left.jpg')
+        background-size: 49px/10px*1em 455px/10px*1em
+        width: 49px/10px*1em
+        height: 455px/10px*1em
+
+      .blt_huge_pagination_right
+        float: right
+        //@include img_block('huge_pagination_right.jpg', 49px/10px*1em, 455px/10px*1em)
+
+        background: url('../img/bulletin/huge_pagination_right.jpg')
+        background-size: 49px/10px*1em 455px/10px*1em
+        width: 49px/10px*1em
+        height: 455px/10px*1em
+
+
+    .blt_pagination_dots
+      @include absolute_cover(auto, 0, 0, 0)
+      z-index: 2
+      text-align: center
+      font-size: 0
+
+      .blt_pagination_dot
+        display: inline-block
+        cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+
+        &:after
+          content: ' '
+          width: 8px/10px*1em
+          height: 8px/10px*1em
+          background: #fff
+          border-radius: 4px/10px*1em
+          display: inline-block
+          vertical-align: baseline
+          margin: 5px/10px*1em 10px/10px*1em
+          line-height: 15px/10px*1em
+          box-shadow: 0 1px/10px*1em 3px/10px*1em rgba(0,0,0,0.3)
+          opacity: .6
+          transition: .2s
+
+        &:hover:after
+          opacity: .8
+          @include transform(scale(1.2))
+
+        &.active:after
+          cursor: default
+          opacity: 1
+          @include transform(scale(1.5))
+
+  #blt_under_board
+    height: 15em
+    overflow: hidden
+
+    &:after
+      content: ' '
+      clear: both
+      display: block
+
+    #blt_wheel_wrapper
+      margin-top: 4px/10px*1em
+      margin-left: 4px/10px*1em
+      float: left
+
+      #blt_wheel
+        @include img_block('wheel.png', 260px/10px*1em, 260px/10px*1em)
+        position: relative
+        //transition: 1s
+
+        #blt_wheel_rotate_area
+          border-radius: 50%
+          @include absolute_cover(0,0,0,0)
+        //&:hover
+        //  @include transform(rotate(90deg))
+
+
+        .blt_sticker
+          cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+          top: 20px/10px*1em
+          left: 106px/10px*1em
+          transform-origin: 25px/10px*1em 111px/10px*1em
+          position: absolute
+
+          @for $i from 0 through 7
+            &:nth-child(#{$i+1})
+              @include transform(rotate($i*45deg))
+
+
+
+
+    #blt_style_section
+      float: left
+      margin-top: 31px/10px*1em
+      margin-left: 22px/10px*1em
+
+      .blt_design_selector_box
+        background: #a7cd48
+        border-radius: 5px/10px*1em
+        box-shadow: 1px/10px*1em 1px/10px*1em 1px/10px*1em rgba(0, 0, 0, 0.3)
+        line-height: 2.7em
+        letter-spacing: -0.06em
+        height: 2.4em
+        margin: 0 auto 2em
+        padding: 0 0.8em
+        font-weight: bold
+        cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+
+        &:after
+          content: ' '
+          display: inline-block
+          @include img_block('design_select_arrow.png', 8px/10px*1em, 7px/10px*1em)
+          margin-left: 6px/10px*1em
+
+      .blt_color_selector_box
+        @include img_block('frame_color_label.png', 97px/10px*1em, 19px/10px*1em, no-repeat 50% 0)
+        height: auto
+        margin: 22px/10px*1em auto 0
+        padding-top: 28px/10px*1em
+
+        .blt_color_plate
+          width: 15px/10px*1em
+          height: 15px/10px*1em
+          float: left
+          margin-right: 5px/10px*1em
+          cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+
+          &:hover
+            opacity: .6
+
+          &:active
+            opacity: .9
+
+          &:last-child
+            margin-right: 0
+
+          &.yellow
+            background: #fcdb07
+          &.green
+            background: #a7cd48
+          &.violet
+            background: #953786
+          &.orange
+            background: #f9aa1c
+          &.blue
+            background: #34b5c9
+
+    #blt_sticker_week
+      float: right
+      margin-top: 38px/10px*1em
+      margin-right: 21px/10px*1em
+
+      #blt_sticker_week_label
+        @include img_block('sticker_week_label.png', 77px/10px*1em, 45px/10px*1em, no-repeat 50% 0)
+        height: auto
+        padding-top: 52px/10px*1em
+        text-align: center
+        float: left
+        font-weight: bold
+        margin-right: 23px/10px*1em
+        letter-spacing: -0.09em
+        line-height: 1.2em
+
+      .blt_sticker_week_sticker
+        position: static
+        float: left
+
+
+  #blt_achieve_slide
+    position: relative
+    z-index: 10!important
+    background: #a7cd48
+    min-width: 600px/10px*1em
+    transition: .3s
+    padding-top: 67px/10px*1em
+
+
+    .blt_header
+      @include img_block('achieve_header_bg.png', 1px, 67px/10px*1em)
+      width: auto
+      padding-top: 0.1px/10px*1em
+      z-index: 10000
+      left: 0
+      right: 0
+      top: 0
+      position: absolute
+      cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+
+      &.sticked
+        position: fixed
+        bottom: 0
+        top: auto
+
+
+      .blt_label
+        @include img_block('achieve_h_label.png', 230px/10px*1em, 43px/10px*1em)
+        background-repeat: no-repeat
+        background-position: left
+        margin: 15px/10px*1em auto 0
+        width: 291px/10px*1em
+        display: block
+
+        &:before
+          content: " "
+          @include img_block('achieve_h_label_arrows.png', 60px/10px*1em, 86px/10px*1em)
+          height: 43px/10px*1em
+          background-position: top
+          display: block
+          float: right
+          transition: .3s
+
+    &.active
+      .blt_header
+        .blt_label:before
+          background-position: bottom
+
+    .blt_achieve_content
+      //height: 0
+      overflow: hidden
+      transition: .3s
+
+      .blt_content
+        width: auto
+        min-width: 600px/10px*1em
+        max-width: 1000px/10px*1em
+        margin: auto
+        padding: 15px/10px*1em 0 35px/10px*1em
+        min-height: 100px
+        transition: .3s
+
+  .blt_achieve_item
+    float: left
+    margin: 20px/10px*1em 20px/10px*1em
+
+    .blt_title
+      font-weight: bold
+      letter-spacing: -0.015em
+
+      .blt_achieve_item_icon
+        @include img_block('achieve_icon.jpg', 30px/10px*1em, 30px/10px*1em)
+        border-radius: 7px/10px*1em
+        box-shadow: 0px/10px*1em 1px/10px*1em 3px/10px*1em rgba(0, 0, 0, 0.50)
+        display: inline-block
+        vertical-align: middle
+        margin-bottom: 4px/10px*1em
+        margin-right: 6px/10px*1em
+
+    .blt_medals_container
+      padding-left: 5px/10px*1em
+      margin-top: -2px/10px*1em
+
+      .blt_medal
+        @include img_block('medal_shadow.png', 30px/10px*1em, 51px/10px*1em, 50% 0 no-repeat)
+        padding-top: 55px/10px*1em
+        height: auto
+        width: 53px/10px*1em
+        display: inline-block
+        vertical-align: top
+        margin-top: 10px/10px*1em
+        text-align: center
+        text-transform: uppercase
+        font-family: 'groboldregular'
+
+        > div
+          font-size: .7em
+
+        &.active
+          background-image: url(//cdn.bubblesu.com/images/bulletine/medal.png)
+
+      .blt_trophy
+        background-image: url(//cdn.bubblesu.com/images/bulletine/trophy_shadow.png)
+        display: inline-block
+        vertical-align: top
+        margin: 2px/10px*1em 6px/10px*1em
+        position: static
+
+        &.active
+          background-image: url(//cdn.bubblesu.com/images/bulletine/trophy.png)
+          cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+
+
+.blt_trophy
+  @include img_block('trophy.png', 72px/10px*1em, 72px/10px*1em, no-repeat)
+  height: auto
+  padding-top: 72px/10px*1em
+  //position: absolute
+  //z-index: 10
+
+.blt_trophy_label
+  display: none
+
+.blt_sticker
+  cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+  position: absolute
+  //z-index: 10
+  transform-origin: 50% 50%
+
+.blt_sticker_avatar_sticker
+  position: relative
+  z-index: 10
+
+
+@include sticker_gen(heart, 48px/10px*1em, 42px/10px*1em, 4px/10px*1em)
+@include sticker_gen(clever, 50px/10px*1em, 50px/10px*1em, -2px/10px*1em)
+@include sticker_gen(star, 50px/10px*1em, 47px/10px*1em)
+@include sticker_gen(moon, 48px/10px*1em, 50px/10px*1em)
+
+@include sticker_gen(rostar, 49px/10px*1em, 47px/10px*1em)
+@include sticker_gen(music, 44px/10px*1em, 47px/10px*1em)
+@include sticker_gen(crown, 47px/10px*1em, 45px/10px*1em)
+@include sticker_gen(butterfly, 52px/10px*1em, 45px/10px*1em, 3px/10px*1em)
+
+.blt_sticker_week_sticker, .blt_sticker_avatar_sticker
+  //@include img_block('week_sticker.png', 44px/10px*1em, 72px/10px*1em)
+  //position: absolute
+  cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto
+  //z-index: 10
+
+
+
+.blt_ui-draggable, .blt_board_working_area .ui-draggable
+  //transition: .1s transform
+
+.blt_ui-draggable-dragging
+  cursor: none!important
+  &:hover, *
+    cursor: none!important
+
+.blt_ui-draggable-dragging
+  @include transform(scale(1.3))
+  z-index: 10
+  transition: .1s transform!important
+  display: block!important
+
+  div[class^='angle'] > *
+    @include transform( rotate(-10deg)!important )
+
+.blt_sticker_wrapper
+  transition: .1s
+
+@-webkit-keyframes trash_feedback
+  0%
+    opacity: 1
+  50%
+    opacity: .3
+  100%
+    opacity: 1
+
+@keyframes trash_feedback
+  0%
+    opacity: 1
+  50%
+    opacity: .3
+  100%
+    opacity: 1
+
+
+
+//JUST FOR DEBUG
+//
+//.touch_point
+//  position: absolute
+//  height: 20px/10px*1em
+//  width: 20px/10px*1em
+//  border-radius: 10px/10px*1em
+//  border: 3px/10px*1em solid black
+//  z-index: 100
+//  margin: -10px/10px*1em
+//
+//#touch_point_start
+//  background: orangered
+//#touch_point_center
+//  background: forestgreen
+//#touch_point_touch
+//  background: #ffff00

@@ -1,0 +1,192 @@
+/**** spinner animations ***/
+
+@include keyframes(sunspin) {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
+}
+
+@include keyframes(cloud1move) {
+  from {
+    @include transform(translateX(100%));
+  }
+  to {
+    @include transform(translateX(-25%));
+  }
+}
+
+@include keyframes(cloud2move) {
+  from {
+    @include transform(translateX(120%));
+  }
+  to {
+    @include transform(translateX(-25%));
+  }
+}
+
+@include keyframes(star1twinkle) {
+  0% {
+    opacity: 0.2;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@include keyframes(star2twinkle) {
+  0% {
+    opacity: 0.8;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* Buzz Out*/
+
+@include keyframes(buzz-out) {
+  10% {
+    @include transform(translateX(3px) rotate(2deg));
+  }
+
+  20% {
+    @include transform(translateX(-3px) rotate(-2deg));
+  }
+
+  30% {
+    @include transform(translateX(3px) rotate(2deg));
+  }
+
+  40% {
+    @include transform(translateX(-3px) rotate(-2deg));
+  }
+
+  50% {
+    @include transform(translateX(2px) rotate(1deg));
+  }
+
+  60% {
+    @include transform(translateX(-2px) rotate(-1deg));
+  }
+
+  70% {
+    @include transform(translateX(2px) rotate(1deg));
+  }
+
+  80% {
+    @include transform(translateX(-2px) rotate(-1deg));
+  }
+
+  90% {
+    @include transform(translateX(1px) rotate(0));
+  }
+
+  100% {
+    @include transform(translateX(-1px) rotate(0));
+  }
+}
+
+/* Buzz */
+
+@include keyframes(buzz) {
+  50% {
+    @include transform(translateX(3px) rotate(2deg));
+  }
+  100% {
+    @include transform(translateX(-3px) rotate(-2deg));
+  }
+}
+
+@include keyframes(bubblesbounce) {
+  0% {
+    @include transform(translate3d(0, -300px, 0));
+    opacity: 0;
+  }
+  70% {
+    @include transform(translate3d(0, 0, 0));
+    opacity: 1;
+  }
+  90% {
+    @include transform(translate3d(0, -10px, 0));
+  }
+  100% {
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+@include keyframes(sprite) {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -100%;
+  }
+}
+
+@include keyframes(toucan) {
+  0%, 8% {
+    left: -100%;
+    top: 250px;
+  }
+  22% {
+    left: 60%;
+    top: 150px;
+  }
+  31%, 100% {
+    left: 200%;
+    top: 100px;
+  }
+}
+
+@include keyframes(flexi) {
+  0%, 50% {
+    right: -50%;
+    top: 250px;
+  }
+  60% {
+    right: 25%;
+    top: 150px;
+  }
+  90%, 100% {
+    right: 150%;
+    top: 50px;
+  }
+}
+
+@include keyframes(starpulse) {
+  from {
+    @include transform(scale3d(1, 1, 1));
+    opacity: 0.5;
+  }
+
+  50% {
+    @include transform(scale3d(1.01, 1.01, 1.01));
+    opacity: 1;
+  }
+
+  to {
+    @include transform(scale3d(1, 1, 1));
+    opacity: 0.1;
+  }
+}

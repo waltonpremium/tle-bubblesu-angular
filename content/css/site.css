@@ -1,0 +1,1053 @@
+html,
+body {
+    height: 100%;
+}
+
+.body-wrapper {
+    min-height: 100%;
+    margin: 0 auto -15em;
+}
+.modal {
+    top:10px;
+}
+
+body,
+.body-wrapper,
+.page-content,
+.upcoming-apps {
+    background-color: #eBeBeB;
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+body.modal-open .body-wrapper {
+    -webkit-filter: blur(50px);
+    filter: blur(50px);
+}
+
+.popover {
+    width: 500px;
+}
+
+#splashscreen {
+    position:relative;
+    width:100%;
+    background-color: #eBeBeB;
+    height:100%;
+    z-index:10;
+    margin: 0 auto;
+}
+#splashscreen.hide-loader {
+    visibility: hidden !important;
+    display: none !important;
+}
+
+.splashscreen-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.splashscreen-container img {
+  max-width: 250px;
+  width: 75%;
+}
+
+.container-fluid {
+	width: 100%;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+#main {
+    overflow: hidden;
+}
+/********************
+ * Top Account Menu Styles
+ *********************/
+
+.top-account-menu {
+	background-color: #61d6fc;
+    position: relative;
+    z-index: 6;
+}
+
+.welcome-wrapper {
+    margin-right: 0;
+    margin-top: 3px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.welcome-mobile {
+    background-color: #953786;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 3px;
+    color: #ebebeb;
+}
+
+.tab-pane {
+    min-height: 350px;
+}
+
+.activity-games-empty {
+    margin-top: 11em;
+}
+
+.menu-buttons {
+    padding-left: 0;
+}
+
+.my-buddies-btn,
+.my-account-btn {
+	border-bottom-right-radius: 1em;
+	border-bottom-left-radius: 1em;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	padding: 5px;
+    margin-top: -1px
+}
+
+.my-buddies-btn span {
+	padding: 6px;
+}
+
+.my-buddies-btn {
+	background-color: #953786;
+    border-color: #953786;
+    border-top: none;
+	color: #FFF;
+}
+
+.my-account-btn {
+	background-color: #CCC;
+    border-color: #AAA;
+    border-top: none;
+}
+
+.my-account-btn > span {
+    color: #FFF;
+}
+
+.my-buddies-btn i,
+.my-account-btn i {
+	color: #fff;
+}
+
+.account-menu .dropdown-menu {
+    right: 0%;
+    left: inherit;
+}
+
+.account-menu .dropdown-menu > li > a {
+    padding: 1em;
+}
+
+@media (max-width:767px) {
+  .welcome-wrapper {
+    text-align: left;
+    padding-right: 15px;
+  }
+
+  .user-welcome {
+      word-wrap: break-word;
+      text-align: center;
+  }
+
+  .menu-buttons {
+      text-align: right;
+  }
+}
+
+@media ( max-width: 375px ) {
+    .avatar-center-xs {
+        text-align: center;
+    }
+}
+/********************
+ * My Buddies Styles
+ *********************/
+
+.my-buddies {
+	background-image: url(../../../theme/TleBs3/img/background/my-buddies-bg.png);
+	background-color: #87CEFA;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+  display: none;
+}
+
+.my-buddies > div:first-child {
+	padding: 25px 15px;
+}
+
+.my-buddies > div:last-child {
+	padding-bottom: 25px;
+}
+
+.buddy-character > .portrait {
+    position: relative;
+}
+
+.portrait > .badge {
+    position: absolute;
+    bottom: 1%;
+    left: 60%;
+}
+
+.my-buddies-form {
+	font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.my-buddies-form h2 {
+	color: #FFF;
+	font-family: 'KBPlanetEarth', 'Comic Sans', sans-serif;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.my-buddies-form .btn {
+	border: none;
+	font-weight: bold;
+}
+
+.plush-toy {
+	min-width: 135px;
+}
+
+.refer-a-friend {
+  background-color: #a7cd48;
+  border-radius: 6px;
+  padding: 1em;
+  z-index:0;
+}
+
+.refer-a-friend h2 {
+	letter-spacing: 1.5px;
+    margin-top: 10px;
+}
+
+.refer-a-friend .btn {
+	background-color: #953786;
+	color: #FFF;
+	font-family: 'McLaren', sans-serif;
+}
+
+.refer-a-friend .input-group .form-control,
+.refer-a-friend .input-group-btn .btn {
+	z-index: 1;
+}
+
+.refer-a-friend .media-body {
+    padding: 0 2% 2%;
+}
+
+.close-my-buddies {
+    width: 100%;
+    margin: 1em 0;
+}
+
+@media (max-width: 991px) {
+	.plush-toy {
+		left: 0;
+		max-width: 100px;
+        min-width: inherit;
+	}
+}
+
+@media (max-width: 767px) {
+	.avatar {
+		margin-bottom: 10px;
+	}
+	.add-a-buddy {
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 350px) {
+    input#referEmail {
+        font-size: 10px;
+        padding: 5px;
+    }
+}
+
+/********************
+ * My Buddies Messages Styles
+ *********************/
+.message-subject {
+    text-transform:capitalize;
+}
+
+.panel-title a {
+    text-decoration: none;
+}
+
+/********************
+ * BubblesU Spinner Overrides
+ *********************/
+.menuContainer {
+	margin-bottom: -10px;
+    position: relative;
+}
+
+.day {
+    filter: none;
+    background: #00bff0;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: 0px 200px;
+    background-size: 100%;
+    background:  -moz-linear-gradient(top, #00bff0 0%, #c1f2ff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00bff0), color-stop(100%,#c1f2ff));
+    background: -webkit-linear-gradient(top, #00bff0 0%,#c1f2ff 100%);
+    background: -o-linear-gradient(top, #00bff0 0%,#c1f2ff 100%);
+    background: -ms-linear-gradient(top, #00bff0 0%,#c1f2ff 100%);
+    background: linear-gradient(to bottom, #00bff0 0%,#c1f2ff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bff0', endColorstr='#c1f2ff',GradientType=0 );
+    z-index: 1;
+}
+
+.night {
+    filter: none;
+	background: #000a53;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMGE1MyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDhmZTAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #000a53 0%, #008fe0 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000a53), color-stop(100%,#008fe0));
+	background: -webkit-linear-gradient(top,  #000a53 0%,#008fe0 100%);
+	background: -o-linear-gradient(top,  #000a53 0%,#008fe0 100%);
+	background: -ms-linear-gradient(top,  #000a53 0%,#008fe0 100%);
+	background: linear-gradient(to bottom,  #000a53 0%,#008fe0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000a53', endColorstr='#008fe0',GradientType=0 );
+}
+
+#wheel {
+    overflow: hidden;
+    width: 100%;
+    z-index: 3;
+}
+
+#sky {
+	overflow: visible;
+    z-index: 0;
+}
+
+#topMenu {
+    margin-bottom: -10px;
+    display: block;
+    -webkit-transition: all linear 0.25s;
+    transition: all linear 0.25s;
+}
+
+#CurriculumSpinner {
+	left: inherit;
+	width: 100%;
+}
+
+.bubbles-u-logo {
+    margin-left: 15%;
+    padding-top: 2%;
+    position: relative;
+    width: 17%;
+    z-index: 4;
+}
+
+.logo-padding-bottom {
+    padding-bottom: 10%;
+}
+
+.bubbles-u-logo-small {
+    width: 70%;
+}
+
+.all-center {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.spinner {
+	left: inherit;
+}
+
+#topMenu.hide-wheel {
+    display: none;
+    -webkit-transition: all linear 0.25s;
+    transition: all linear 0.25s;
+}
+
+.landscape {
+    height: 100%;
+    max-height: 416px;
+    width: 100%;
+    position: absolute;
+    bottom:-5px;
+    z-index: 1;
+}
+
+.landscape .container {
+    background-image: url(../../theme/TleBs3/img/background/mountain-background.png);
+    background-repeat: no-repeat;;
+    background-position: center bottom;
+    background-size: 100%;
+    height: 100%;
+    max-height: 416px;
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+    .landscape .container {
+        width: 850px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .landscape .container {
+        width: 1070px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .landscape .container {
+        width: 1270px;
+    }
+}
+
+.sun {
+    top: 10%;
+    position:absolute;
+    z-index: 1;
+    left: 50%;
+    transform-origin: 0% 150%;
+
+    -webkit-animation: sunrotate 800s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation: sunrotate 800s;
+    animation-iteration-count: infinite;
+    animation-timing-function:linear;
+}
+
+.sun-spin {
+    background-image: url(../../theme/TleBs3/img/background/sun.png);
+    background-size: contain;
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+    max-height: 200px;
+    -webkit-animation: sunspin 100s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation: sunspin 100s;
+    animation-iteration-count: infinite;
+    animation-timing-function:linear;
+}
+
+.moon {
+    background-image: url(../../theme/TleBs3/img/background/header-moon-bg.png);
+    background-size: contain;
+    background-repeat:no-repeat;
+    width: 10%;
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+    max-height: 200px;
+    top: 10%;
+    position:absolute;
+    z-index: 2;
+    left: 65%;
+}
+
+
+
+.cloud {
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    opacity: 0.65;
+    z-index: 2;
+}
+
+.cloud-1 {
+    background-image: url(../../theme/TleBs3/img/background/cloud-left.png);
+    height: 100px;
+    width: 300px;
+    top: 0px;
+
+    -webkit-animation: cloud1move 220s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation: cloud1move 220s;
+    animation-iteration-count: infinite;
+
+    animation-timing-function: linear;
+}
+.cloud-2 {
+    background-image: url(../../theme/TleBs3/img/background/cloud-right.png);
+    height: 150px;
+    width: 250px;
+    top: 25px;
+
+    -webkit-animation: cloud2move 320s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation: cloud2move 320s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.star {
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    opacity: 0.65;
+    z-index: 1;
+}
+
+.star-1 {
+    background-image: url(../../theme/TleBs3/img/background/header-star1-bg.png);
+    height: 100px;
+    width: 300px;
+    top: 0px;
+    left: 65%;
+}
+.star-2 {
+    background-image: url(../../theme/TleBs3/img/background/header-star2-bg.png);
+    height: 150px;
+    width: 250px;
+    top: 25px;
+    left: 55%;
+}
+
+
+/**** spinner animations ***/
+@-webkit-keyframes sunrotate {
+    from {
+        -ms-transform: rotate(110deg);
+        -webkit-transform: rotate(110deg);
+        transform: rotate(110deg);
+    }
+    to {
+        -ms-transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+}
+
+@keyframes sunrotate {
+    from {
+        -ms-transform: rotate(110deg);
+        -webkit-transform: rotate(110deg);
+        transform: rotate(110deg);
+    }
+    to {
+        -ms-transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+}
+
+@-webkit-keyframes sunspin {
+    from {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sunspin {
+    from {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+@-webkit-keyframes cloud1move {
+    from {right: -200px;}
+    to {right: 2000px;}
+}
+
+@-webkit-keyframes cloud2move {
+    from {right: -600px;}
+    to {right: 2000px;}
+}
+
+@keyframes cloud1move {
+    from {right: -200px;}
+    to {right: 2000px;}
+}
+
+@keyframes cloud2move {
+    from {right: -600px;}
+    to {right: 2000px;}
+}
+
+
+@media (max-width: 767px) {
+	#CurriculumSpinner {
+		margin-top: 10px;
+	}
+}
+
+/********************
+ * BubblesU Main Content
+ *********************/
+ .ui-view-container {
+   position: relative;
+ }
+
+ [data-ui-view]{
+   z-index: 2;
+   width: 100%;
+
+ }
+ [data-ui-view].ng-animate{
+   transition: 0.4s ease-out all;
+ }
+ [data-ui-view].ng-enter{
+   transform: translateX(100%);
+ }
+
+ [data-ui-view].ng-enter.ng-enter-active {
+   transform: translateX(0%);
+ }
+
+ [data-ui-view].ng-leave{
+   position:absolute;
+   z-index:1;
+   transform: translateX(0%);
+   top:0;
+ }
+
+ [data-ui-view].ng-leave.ng-leave-active {
+   transform: translateX(-100%);
+ }
+
+
+.page-content {
+}
+
+.bubbles.character-page {
+    position: inherit;
+    width: inherit;
+    left: inherit;
+    top: inherit;
+}
+
+.bubbles.character-page,
+.lennylucy.character-page,
+.flexi.character-page,
+.lionstein.character-page,
+.tito.character-page,
+.ping.character-page,
+.misschievous.character-page {
+    height: 757px;
+}
+
+.character-page {
+    background-size: cover;
+    background-position: 50% center;
+    background-repeat: no-repeat;
+    padding: 1em 0;
+    overflow-y: auto;
+}
+
+.character-sprite {
+    margin: 0 auto;
+    width: 40%;
+}
+
+.bubbles {
+    background-image: url(//cdn.bubblesu.com/images/character_pages/character_pages_bubbles.png);
+}
+
+.lennylucy {
+    background-image: url(//cdn.bubblesu.com/images/character_pages/character_pages_lennylucy.png);
+}
+
+.flexi {
+    background-image: url(//cdn.bubblesu.com/images/character_pages/character_pages_flexi.png);
+}
+
+.lionstein {
+    background-image: url(//cdn.bubblesu.com/images/character_pages/character_pages_lionstein.png);
+}
+
+.tito {
+    background-image: url(//cdn.bubblesu.com/images/character_pages/character_pages_tito.png);
+}
+
+.ping {
+    background-image: url(//cdn.bubblesu.com/images/character_pages/character_pages_ping.png);
+}
+
+.misschievous {
+    background-image: url(//cdn.bubblesu.com/images/character_pages/character_pages_misschievous.png);
+}
+
+h1.character-name {
+    font-family: 'KBPlanetEarth', 'Comic Sans', sans-serif;
+    font-size: 4em;
+    margin-top: 0;
+}
+
+.bubbles .character-name {
+    color: #00afec;
+}
+.flexi .character-name {
+    color: #ea148c;
+}
+.lionstein .character-name {
+    color: #8562a7;
+}
+.misschievous .character-name {
+    color: #ac46c1;
+}
+.tito .character-name {}
+.lennylucy .character-name {
+    color: #56b729;
+}
+.ping .character-name {}
+
+
+.slider-icon {
+    height: 111px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.categories > div > .row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align : center;
+    -webkit-align-items : center;
+    -moz-box-align : center;
+    -ms-flex-align : center;
+      align-items : center;
+    margin: 1em 0;
+    min-height: 111px;
+}
+
+#readingCorner {
+     box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+     height:300px;
+}
+
+.reading-title {
+    margin-bottom: 1em;
+}
+
+.reading-corner-container {
+  margin-top: 40px;
+}
+
+
+
+
+#readingBubbles img {
+    height: 320px;
+    top: -20px;
+    position: absolute;
+}
+
+.upcoming-apps {
+    margin: 2em 0;
+}
+
+.app-logo img {
+    border: 8px solid purple;
+    border-radius:15px;
+}
+
+.coming-soon {
+    background-color: #933b84;
+    border-radius: 10px;
+    color: #fcdb07;
+    padding: 7px 11px 7px 11px;
+    text-transform: UPPERCASE;
+}
+
+.app-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+@media (max-width: 767px) {
+    .slider-icon {
+        max-width: 78px;
+    }
+    .category-video .slider-icon {
+        background-image: url(//cdn.bubblesu.com/images/icons/videos-icon-sm.png);
+    }
+    .category-games .slider-icon {
+        background-image: url(//cdn.bubblesu.com/images/icons/online-game-icon-sm.png);
+    }
+    .category-color .slider-icon {
+        background-image: url(//cdn.bubblesu.com/images/icons/color-create-icon-sm.png);
+    }
+    .category-music .slider-icon {
+        background-image: url(//cdn.bubblesu.com/images/icons/music-icon-sm.png);
+    }
+
+    .app-store-icons {
+        margin-bottom: 1em;
+    }
+}
+
+@media (min-width: 768px) {
+    .character-page {
+        background-position: 50% center;
+    }
+
+    .category-video .slider-icon {
+        background-image: url(//cdn.bubblesu.com/images/icons/videos-icon.png);
+    }
+    .category-games .slider-icon {
+        background-image: url(//cdn.bubblesu.com/images/icons/online_games-icon.png);
+    }
+    .category-color .slider-icon {
+        background-image: url(//cdn.bubblesu.com/images/icons/color_create-icon.png);
+    }
+    .category-music .slider-icon {
+        background-image: url(//cdn.bubblesu.com/images/icons/music-icon.png);
+    }
+}
+
+@media (min-width: 992px) {
+    .character-page {
+        background-position: 60% center;;
+    }
+}
+
+/********************
+ * BubblesU Footer
+ *********************/
+.footer {
+    background-color: #933b84;
+    color: #FFF;
+    margin:2px 0;
+    position: relative;
+    z-index: 3;
+}
+
+.footer,
+.push {
+    clear: both;
+    height: 15em;
+}
+
+.top-row {
+     background-color: #622558;
+     padding: 7px 0;
+}
+
+.social-icon {
+    float: left;
+    margin: 0 3px;
+}
+
+#exploreLearnPlayGrow {
+    min-height: 32px;
+    padding: 4px 0;
+}
+
+.footer-menu {
+    padding: 0;
+}
+
+.footer-menu > li {
+    display: inline-block;
+    padding: 1px 0;
+}
+
+.footer-menu > li a {
+    border-right: 1px solid #FFF;
+    color: #FFF;
+    padding: 0 5px;
+}
+
+.footer-menu > li a:hover {
+    color: #622558;
+}
+
+.footer-menu > li:last-child a {
+    border-right: none;
+}
+
+.bottom-row {
+    margin-top: 1em;
+}
+
+/********************
+ * My Account Menu Styles
+ *********************/
+ .tab-content {
+     border: 1px solid #ddd;
+     border-top: none;
+     margin-bottom: 2em;
+ }
+ .tab-pane {
+     background-color: #FFF;
+     padding: 1em;
+ }
+
+ .activity-header {
+     border-bottom: 2px solid #ddd;
+     margin: 0 5px;
+ }
+
+ .activity-games-list > div {
+     margin:5px auto;
+ }
+
+ #achievements-accordion {
+     margin-top: 1em;
+ }
+
+ .update-button {
+     margin-top: 1em;
+ }
+
+ @media (max-width: 767px) {
+     .nav-tabs > li {
+         width: 33%;
+         font-size: 1.1em;
+     }
+
+     .nav-tabs > li,
+     .nav-tabs > li > a {
+         min-height: 56px;
+         text-align: center;
+     }
+
+     .nav-tabs > li > a {
+         display: -webkit-flex;
+         display: flex;
+         -webkit-align-items: center;
+         align-items: center;
+         -webkit-justify-content: center;
+         justify-content: center;
+     }
+ }
+
+/********************
+ * BubblesU Angular Animations
+ *********************/
+.carousel-indicators li{
+    border-color:black;
+}
+.carousel-indicators .active{
+    background-color:black;
+}
+
+/* view transitions*/
+
+/*.fade-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    opacity: 1;
+}*/
+
+    .fade-view.ng-enter,
+    .fade-view.ng-leave {
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
+    }
+
+    .fade-view.ng-enter {
+     left:-50%;
+          opacity: 0;
+    }
+
+    .fade-view.ng-enter-active {
+        left:50%;
+        opacity: 1;
+    }
+
+    .fade-view.ng-leave {
+      left:-50%;
+        opacity: 1;
+    }
+
+    .fade-view.ng-leave-active {
+        left: 50%;
+  opacity:0;
+   }
+
+
+    .slide-animation.ng-enter, .slide-animation.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    position:relative;
+    height: 1000px;
+}
+
+.slide-animation.ng-enter {
+  z-index:100;
+  left:100%;
+  opacity:0;
+}
+
+.slide-animation.ng-enter.ng-enter-active {
+  left:0;
+  opacity:1;
+}
+
+.slide-animation.ng-leave {
+  z-index:101;
+  opacity:1;
+  left:0;
+}
+
+.slide-animation.ng-leave.ng-leave-active {
+  left:-100px;
+  opacity:0;
+}
+
+
+
+/*.animate-if.ng-enter, .animate-if.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active {
+  opacity:1;
+}*/
+
+.carousel-indicators{
+    bottom:-40px;
+}

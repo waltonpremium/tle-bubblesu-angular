@@ -1,0 +1,2625 @@
+/********************************************************
+ * BubblesU CSS
+ * 1. Page Wrappers and Containers
+ * 2. Typographical Elements
+ * 3. UI Elements
+ *********************** Main Page **********************
+ * 4. Loading Splashscreen
+ * 5. Top Nav Bar
+ * 6. My Buddies
+ * 7. Landscape
+ * 8. Character Spinner
+ * 9. Character Pages (Sliders)
+ * 10. Reading Corner and App Showcase
+ * 11. Footer
+ * 12. Modals
+ ******************** My Account Page *******************
+ * 13. Tabs
+ * 14. Tabs Content
+ ********************  Bulletin Board  *******************
+ * 15. Bulletin Board Overrides
+ *********************  Static Pages  ********************
+ * 16. Static UI Elements
+ *********************************************************
+ ************************  Extra  ************************
+ * 17. Hamburger menu
+ *********************************************************/
+@import 'css3-mixins';
+@import 'animations';
+
+$mouse-cursor: url('//cdn.bubblesu.com/images/cursors/mouse-cursor.png'), auto;
+$hand-pointer-cursor: url('//cdn.bubblesu.com/images/cursors/hand-pointer-cursor.png'), auto;
+$hand-grab-cursor: url('//cdn.bubblesu.com/images/cursors/hand-grab-cursor.png'), auto;
+
+/********************************************************
+ * 1. Page Wrappers and Containers
+ ********************************************************/
+
+html {
+    overflow-x: hidden;
+    position: relative;
+    cursor: $mouse-cursor;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #333;
+    font-family: 'McLaren', 'Comic Sans MS', cursive;
+    /* IE fix*/
+    padding: 0 !important;
+    position: relative;
+    z-index: 0;
+}
+
+.body-wrapper {
+    margin: 0 auto -18em;
+    min-height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+body,
+.body-wrapper,
+.page-content,
+.upcoming-apps,
+#splashscreen {
+    background-color: #eBeBeB;
+}
+
+.container {
+    @media(max-width: 767px) {
+        width: 100%;
+    }
+}
+
+.container-fluid {
+    width: 100%;
+}
+
+#main {
+    overflow: hidden;
+}
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak,
+.ng-hide,
+.x-ng-hide {
+    display: none !important;
+}
+
+select,
+textarea,
+select:focus,
+textarea:focus,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.form-control,
+#post-referral,
+#post-center,
+#post-promocode,
+#referEmail {
+	font-size: 16px;
+}
+
+a {
+    cursor: $hand-pointer-cursor;
+}
+
+/**
+* Address `outline` inconsistency between Chrome and other browsers.
+*/
+
+a:focus {
+    outline: 0;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/********************************************************
+ * 2. Typographical Elements
+ ********************************************************/
+a:hover {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+    line-height: 1.25em;
+}
+
+h3 {
+    font-size: 1.3em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1.25em;
+    margin: 1em 0 .5em;
+}
+
+h5 {
+    font-size: .9em;
+}
+
+.arial {
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.kb-planet-earth {
+    font-family: 'KBPlanetEarth', 'Comic Sans', sans-serif;
+}
+
+.mclaren {
+    font-family: 'McLaren', sans-serif;
+}
+
+/********************************************************
+ * 3. UI Elements
+ ********************************************************/
+
+/**** Form Overrides ****/
+.form-control {
+    font-size: 1em;
+}
+
+.input-lg, .form-horizontal .form-group-lg .form-control {
+    font-size: 1.4em;
+}
+
+/**** Button Overrides ****/
+.btn {
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, .5);
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, .5);
+    border: .25em solid #fff;
+    font-weight: bold;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+    border-color: initial;
+    outline: 0 !important;
+}
+
+.btn-primary {
+    color: #333;
+    background-color: #a7c850;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    color: #fff;
+    background-color: #94b657;
+    border-color: #fff;
+}
+
+[role="button"] {
+    cursor: $hand-pointer-cursor;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: $hand-pointer-cursor;
+}
+
+/**** Helper Classes ****/
+
+.all-center {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, .5);
+}
+
+.box-shadow-light {
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, .4);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, .4);
+}
+
+.inline {
+    display: inline;
+}
+
+.margin-1 {
+    margin: 1em;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-margin-left {
+    margin-left: 0 !important;
+}
+
+.no-margin-right {
+    margin-right: 0 !important;
+}
+
+.no-margin-top {
+    margin-top: 0 !important;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-padding-left {
+    padding-left: 0 !important;
+}
+
+.no-padding-right {
+    padding-right: 0 !important;
+}
+
+.no-padding-top {
+    padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+    padding-bottom: 0 !important;
+}
+
+.no-margin-mobile {
+    @media (max-width: 767px) {
+        margin: 0 !important;
+    }
+}
+
+.no-margin-left-mobile {
+    @media (max-width: 767px) {
+        margin-left: 0 !important;
+    }
+}
+
+.no-margin-right-mobile {
+    @media (max-width: 767px) {
+        margin-right: 0 !important;
+    }
+}
+
+.no-margin-top-mobile {
+    @media (max-width: 767px) {
+        margin-top: 0 !important;
+    }
+}
+
+.no-margin-bottom-mobile {
+    @media (max-width: 767px) {
+        margin-bottom: 0 !important;
+    }
+}
+
+.no-padding-mobile {
+    @media (max-width: 767px) {
+        padding: 0 !important;
+    }
+}
+
+.no-padding-left-mobile {
+    @media (max-width: 767px) {
+        padding-left: 0 !important;
+    }
+}
+
+.no-padding-right-mobile {
+    @media (max-width: 767px) {
+        padding-right: 0 !important;
+    }
+}
+
+.no-padding-top-mobile {
+    @media (max-width: 767px) {
+        padding-top: 0 !important;
+    }
+}
+
+.no-padding-bottom-mobile {
+    @media (max-width: 767px) {
+        padding-bottom: 0 !important;
+    }
+}
+
+ol.expanded li,
+ul.expanded li {
+    margin: .5em 0;
+}
+
+.pull-right.margin-1 {
+    margin-top: 0;
+    margin-right: 0;
+}
+
+span.nowrap {
+    white-space: nowrap;
+}
+
+/**** Color Helper Classes ****/
+.color.purple {
+    color: #913A83 !important;
+}
+
+.color.blue {
+    color: #40B1C5 !important;
+}
+
+.color.green {
+    color: #A7C850 !important;
+}
+
+.color.orange {
+    color: #F4A832 !important;
+}
+
+.color.yellow {
+    color: #FBD731 !important;
+}
+
+.color.black {
+    color: #333 !important;
+}
+
+.bgcolor.purple {
+    background-color: #913A83 !important;
+}
+
+.bgcolor.blue {
+    background-color: #40B1C5 !important;
+}
+
+.bgcolor.green {
+    background-color: #A7C850 !important;
+}
+
+.bgcolor.orange {
+    background-color: #F4A832 !important;
+}
+
+.bgcolor.yellow {
+    background-color: #FBD731 !important;
+}
+
+.bgcolor.black {
+    background-color: #333 !important;
+}
+
+/********************************************************
+ * 4. Loading Splashscreen
+ ********************************************************/
+body.loading {
+    overflow: hidden;
+}
+
+#splashscreen {
+    background-color: #eBeBeB;
+    height: 100%;
+    margin: 0 auto;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+
+}
+
+#splashscreen.hide-loader {
+    visibility: hidden !important;
+    display: none !important;
+}
+
+.splashscreen-container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.splashscreen-container img {
+    width: 50%;
+    max-width: 281px;
+}
+
+/********************************************************
+ * 5. Top Nav Bar
+ ********************************************************/
+.top-account-menu {
+    padding-bottom: 37px;
+    position: relative;
+    @media (min-width: 768px) and (max-width: 991px) {
+        padding-bottom: 50px;
+    }
+}
+
+.top-account-menu.day-menu {
+    background-color: #61d6fc; /* sky blue */
+}
+
+.top-account-menu.night-menu {
+    background-color: #000a53; /* midnight blue */
+}
+
+.top-account-menu.night-menu .user-welcome {
+    color: #ebebeb; /* gunsmoke grey/white */
+}
+
+.menu-buttons {
+    padding-left: 0;
+    @media (max-width: 767px) {
+        text-align: right;
+    }
+}
+
+.my-account-btn,
+.my-buddies-btn {
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    padding: 5px;
+    margin-top: -1px;
+    @media (max-width: 767px) {
+        min-height: 48px;
+    }
+}
+
+.my-account-btn {
+    background-color: #CCC; /* slate grey */
+    border-color: #AAA;
+    border-top: none;
+}
+
+.my-buddies-btn {
+    background-color: #953786; /* royal purple */
+    border-color: #953786;
+    border-top: none;
+    color: #FFF;
+}
+
+.my-account-btn > span {
+    color: #FFF;
+}
+
+.my-buddies-btn span {
+    padding: 6px;
+}
+
+.my-account-btn i,
+.my-buddies-btn i {
+    color: #fff;
+}
+
+.account-menu .dropdown-menu {
+    right: 0%;
+    left: inherit;
+}
+
+.account-menu .dropdown-menu > li > a {
+    padding: 1em;
+}
+
+.welcome-wrapper {
+    margin-right: 0;
+    margin-top: 3px;
+    padding-right: 10px;
+    text-align: right;
+    @media (max-width: 767px) {
+        text-align: left;
+        padding-right: 15px;
+    }
+}
+
+.welcome-mobile {
+    background-color: #953786; /* royal purple */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 3px;
+    color: #ebebeb;
+}
+
+.header-buttons {
+    position: relative;
+}
+
+.header-buttons-container {
+    left: 50%;
+    position: absolute;
+    top: -53px;
+    z-index: 6;
+}
+
+.header-buttons-wrapper {
+    left: -50%;
+    position: relative;
+    width: 306px;
+}
+
+/**** Top Nav Bar Media Queries ****/
+
+.user-welcome {
+    @media (max-width: 767px) {
+        word-wrap: break-word;
+        text-align: center;
+    }
+}
+
+.avatar-center-xs {
+    @media (max-width: 375px) {
+        text-align: center;
+    }
+}
+
+/********************************************************
+ * 6. My Buddies
+ ********************************************************/
+
+.my-buddies {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: none;
+    padding-bottom: 30px;
+}
+
+.my-buddies.my-buddies-day {
+    background-image: url('//cdn.bubblesu.com/images/background/my-buddies-bg.png');
+    background-color: #87CEFA;
+}
+
+.my-buddies.my-buddies-night {
+    color: white;
+    background-color: #000a53; /* midnight blue */
+}
+
+.my-buddies > div:first-child {
+    padding: 25px 15px;
+}
+
+.my-buddies > div:last-child {
+    padding-bottom: 25px;
+}
+
+.badge {
+    background-color: red;
+}
+
+.buddy-character > .portrait {
+    position: relative;
+}
+
+.portrait > .badge {
+    position: absolute;
+    bottom: 1%;
+    left: 60%;
+}
+
+.my-buddies-form {
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.my-buddies-form h2 {
+    color: #FFF;
+    font-family: 'KBPlanetEarth', 'Comic Sans', sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.my-buddies-form .btn {
+    border: none;
+    font-weight: bold;
+}
+
+.plush-toy {
+    min-width: 135px;
+}
+
+.refer-a-friend {
+    background-color: #a7cd48;
+    border-radius: 6px;
+    padding: 1em;
+    z-index: 0;
+}
+
+.change-avatar-btn {
+    background-color: #953786;
+    border-color: white;
+    color: white;
+    margin: 0 auto;
+    max-width: 200px;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+.change-avatar-btn.btn:hover,
+.change-avatar-btn.btn:active,
+.change-avatar-btn.btn:focus,
+.change-avatar-btn.btn.focus {
+    border-color: white;
+    color: #ebebeb;
+}
+
+.refer-a-friend h2 {
+    letter-spacing: 1.5px;
+    margin-top: 10px;
+}
+
+.refer-a-friend .btn {
+    background-color: #953786;
+    color: #FFF;
+    font-family: 'McLaren', sans-serif;
+}
+
+.refer-a-friend .input-group .form-control,
+.refer-a-friend .input-group-btn .btn {
+    z-index: 1;
+}
+
+.refer-a-friend .media-body {
+    padding: 0 2% 2%;
+}
+
+.close-my-buddies {
+    width: 100%;
+    margin: 1em 0;
+}
+
+.plush-toy {
+    @media (max-width: 991px) {
+        left: 0;
+        max-width: 100px;
+        min-width: inherit;
+    }
+}
+
+.avatar {
+    @media (max-width: 767px) {
+        margin-bottom: 10px;
+    }
+}
+
+.add-a-buddy {
+    @media (max-width: 767px) {
+        margin-bottom: 10px;
+    }
+}
+
+input#referEmail {
+    @media (max-width: 350px) {
+        padding: 5px;
+    }
+}
+
+/********************************************************
+ * 7. Landscape
+ ********************************************************/
+
+#wheel {
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 65%;
+    max-width: 100%;
+    &.day {
+        filter: none;
+        background: #00bff0;
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: 0px 200px;
+        background-size: 100%;
+        background: rgba(0,192,240,1);
+        background: -moz-linear-gradient(top, rgba(0,192,240,1) 0%, rgba(0,191,240,1) 30%, rgba(206,244,175,1) 84%, rgba(206,244,175,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,192,240,1)), color-stop(30%, rgba(0,191,240,1)), color-stop(84%, rgba(206,244,175,1)), color-stop(100%, rgba(206,244,175,1)));
+        background: -webkit-linear-gradient(top, rgba(0,192,240,1) 0%, rgba(0,191,240,1) 30%, rgba(206,244,175,1) 84%, rgba(206,244,175,1) 100%);
+        background: -o-linear-gradient(top, rgba(0,192,240,1) 0%, rgba(0,191,240,1) 30%, rgba(206,244,175,1) 84%, rgba(206,244,175,1) 100%);
+        background: -ms-linear-gradient(top, rgba(0,192,240,1) 0%, rgba(0,191,240,1) 30%, rgba(206,244,175,1) 84%, rgba(206,244,175,1) 100%);
+        background: linear-gradient(to bottom, rgba(0,192,240,1) 0%, rgba(0,191,240,1) 30%, rgba(206,244,175,1) 84%, rgba(206,244,175,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c0f0', endColorstr='#cef4af', GradientType=0 );
+        .moon, .star, .starfield, .starfield1 {
+            display: none;
+        }
+    }
+    &.night {
+        filter: none;
+        background: #000a53;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMGE1MyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDhmZTAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+        background: -moz-linear-gradient(top, #000a53 0%, #008fe0 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000a53), color-stop(100%, #008fe0));
+        background: -webkit-linear-gradient(top, #000a53 0%, #008fe0 100%);
+        background: -o-linear-gradient(top, #000a53 0%, #008fe0 100%);
+        background: -ms-linear-gradient(top, #000a53 0%, #008fe0 100%);
+        background: linear-gradient(to bottom, #000a53 0%, #008fe0 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000a53', endColorstr='#008fe0', GradientType=0);
+        .sun, .cloud, .toucan, .flexi, .star {
+            display: none;
+        }
+    }
+    #grass {
+        width: 100%;
+        background-image: url('//cdn.bubblesu.com/images/background/grass-background-repeat.jpg');
+        height: 30%;
+        left: 0px;
+        position: absolute;
+        bottom: 0;
+    }
+    .landscape {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: -3%;
+
+        background: url('//cdn.bubblesu.com/images/background/bu-landscape.png') no-repeat center bottom;
+        background-size: 110%;
+        height: 105%;
+    }
+
+    .sun {
+        height: 80%;
+        left: 50%;
+        min-height: 150px;
+        min-width: 150px;
+        max-width: 325px;
+        max-height: 325px;
+        position: absolute;
+        top: 10%;
+        width: 80%;
+        -ms-transform-origin: 0% 150%;
+        -webkit-transform-origin: 0% 150%;
+        transform-origin: 0% 150%;
+    }
+
+    .sun-spin {
+        background-image: url('//cdn.bubblesu.com/images/background/sun.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 100%;
+        min-height: 150px;
+        min-width: 150px;
+        max-width: 325px;
+        max-height: 325px;
+        width: 100%;
+        -webkit-animation: sunspin 100s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        animation: sunspin 100s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    .moon {
+        background-image: url('//cdn.bubblesu.com/images/background/header-moon-bg.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 65%;
+        height: 65%;
+        min-height: 200px;
+        top: 10%;
+        position: absolute;
+        left: 65%;
+    }
+
+    .cloud {
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        opacity: 1;
+    }
+
+    .cloud-1 {
+        background-image: url('//cdn.bubblesu.com/images/background/cloud-left.png');
+        height: 120px;
+        width: 100%;
+        top: 20%;
+
+        -webkit-animation: cloud1move 220s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+
+        animation: cloud1move 220s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+
+    }
+    .cloud-2 {
+        background-image: url('//cdn.bubblesu.com/images/background/cloud-right.png');
+        height: 110px;
+        width: 100%;
+        top: 45%;
+
+        -webkit-animation: cloud2move 320s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+
+        animation: cloud2move 320s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+
+    }
+
+    .star {
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        opacity: 0.65;
+    }
+
+    .star-1 {
+        background-image: url('//cdn.bubblesu.com/images/background/header-star1-bg.png');
+        height: 100px;
+        width: 300px;
+        top: 14%;
+        left: 70%;
+        -webkit-animation: star1twinkle 4s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+
+        animation: star1twinkle 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+
+    }
+    .star-2 {
+        background-image: url('//cdn.bubblesu.com/images/background/header-star2-bg.png');
+        height: 150px;
+        width: 250px;
+        top: 35%;
+        left: 61%;
+        -webkit-animation: star2twinkle 5.5s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+
+        animation: star2twinkle 5.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+
+    }
+    .starfield, .starfield1 {
+        background: transparent url("//cdn.bubblesu.com/images/sprites/stars.png") repeat scroll 0% 0% / cover;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        @include animation(starpulse 8s alternate infinite);
+    }
+    .starfield1 {
+        background-position: 50% 50%;
+        @include animation(starpulse 8s 4s alternate infinite);
+    }
+    .flexi {
+        position: absolute;
+        top: 100px;
+        right: -400px;
+        background: transparent;
+        @include animation(flexi 60s infinite 5s);
+        div {
+            width: 356px;
+            height: 200px;
+            background: url("//cdn.bubblesu.com/images/sprites/Flexi-Flying-Sprite-Sheet.png") 0 0;
+            @include transform(scaleX(-1));
+            @include animation(sprite 0.8s steps(22) infinite);
+        }
+    }
+    .toucan {
+        position: absolute;
+        top: 250px;
+        left: -320px;
+        background: transparent;
+        @include animation(toucan 60s infinite 5s);
+        div {
+            width: 307px;
+            height: 173px;
+            background: url("//cdn.bubblesu.com/images/sprites/Toucan-Flying-SpriteSheet.png") 0 0;
+            @include animation(sprite 0.8s steps(19) infinite);
+        }
+    }
+}
+body:-webkit-full-screen-ancestor {
+    #wheel, .top-account-menu, .header-buttons, #hamburger-menu, .zEWidget-launcher {
+        display: none;
+    }
+}
+
+.loading .bubbles-u-logo {
+    @include animation(none);
+}
+
+.bubbles-u-logo {
+    margin-bottom: -64px;
+    padding-top: 24px;
+    position: relative;
+    width: 55%;
+    z-index: 4;
+    @include animation(bubblesbounce 1.5s cubic-bezier(.68,0,.27,1.55));
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+    a {
+        display: block;
+        width: 100%;
+        height: 714px;
+        background: url('//cdn.bubblesu.com/images/sprites/BU-Logo-StarBurst-SpriteSheet.png') repeat-x 0 50%;
+        background-size: 800%;
+        &:hover {
+            @include animation(sprite 0.8s steps(7));
+            -webkit-animation-direction: reverse;
+            animation-direction: reverse;
+        }
+
+        @include breakpoint(xs) {
+            height: (0.89 * 0.35 * 768px);
+        }
+
+        @include breakpoint(sm) {
+            height: (0.89 * 0.35 * 992px);
+        }
+
+        @include breakpoint(md) {
+            height: (0.89 * 0.35 * 1200px);
+        }
+
+        @include breakpoint(xl) {
+            height: (0.89 * 0.35 * 1225px);
+        }
+
+        @include breakpoint(xxl) {
+            height: (0.89 * 0.35 * 1375px);
+        }
+    }
+    img {
+        min-width: 225px;
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        padding-top: 5%;
+    }
+}
+
+.logo-padding-bottom {
+    padding-bottom: 10%;
+}
+
+.bubbles-u-logo-small {
+    margin-top: 60px;
+    width: 70%;
+}
+
+/**** spinner animations ***/
+.animation-pause {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.animation-play {
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.buzz-out {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+.buzz-out:hover, .buzz-out:focus, .buzz-out:active {
+    -webkit-animation-name: hvr-buzz-out;
+    animation-name: hvr-buzz-out;
+    -webkit-animation-duration: 0.75s;
+    animation-duration: 0.75s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+/********************************************************
+ * 8. Character Spinner
+ ********************************************************/
+
+@import "spinner";
+
+/********************************************************
+ * 9. Character Pages
+ ********************************************************/
+.character-page {
+    background-size: cover;
+    background-position: 50% center;
+    background-repeat: no-repeat;
+    padding: 1em 0 3em;
+    overflow-y: auto;
+}
+
+.background-sprite {
+    position: absolute;
+    z-index: 0;
+    opacity: 1;
+    left: 5%;
+}
+
+.categories > div {
+    z-index: 1;
+}
+
+.bubbles-sprite {
+    top: 50px;
+}
+
+.lennylucy-sprite {
+    top: 295px;
+}
+
+.flexi-sprite {
+    top: 33px;
+}
+
+.lionstein-sprite {
+    top: 45px;
+}
+
+.tito-sprite {
+    top: 20px;
+}
+
+.ping-sprite {
+    top: 25px;
+}
+
+.misschievous-sprite {
+    top: 60px;
+}
+
+.character-sprite img {
+    max-width: 150px;
+}
+
+.bubbles {
+    background-image: url('//cdn.bubblesu.com/images/character_pages/bubbles-background.jpg');
+}
+
+.lennylucy {
+    background-image: url('//cdn.bubblesu.com/images/character_pages/lennylucy-background.jpg');
+}
+
+.flexi {
+    background-image: url('//cdn.bubblesu.com/images/character_pages/flexi-background.jpg');
+}
+
+.lionstein {
+    background-image: url('//cdn.bubblesu.com/images/character_pages/lionstein-background.jpg');
+}
+
+.tito {
+    background-image: url('//cdn.bubblesu.com/images/character_pages/tito-background.jpg');
+}
+
+.ping {
+    background-image: url('//cdn.bubblesu.com/images/character_pages/ping-background.jpg');
+}
+
+.misschievous {
+    background-image: url('//cdn.bubblesu.com/images/character_pages/misschievous-background.jpg');
+}
+
+.bubbles.character-page {
+    position: inherit;
+    width: inherit;
+    left: inherit;
+    top: inherit;
+}
+
+//.bubbles.character-page,
+//.lennylucy.character-page,
+//.flexi.character-page,
+//.lionstein.character-page,
+//.tito.character-page,
+//.ping.character-page,
+//.misschievous.character-page {
+//    height: 757px;
+//}
+
+h1.character-name {
+    font-family: 'KBPlanetEarth', 'Comic Sans', sans-serif;
+    font-size: 2em;
+    margin-top: 0.4em;
+
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.character_info {
+    background: #00afec;
+    border-radius: 20px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    padding: 1.3em!important;
+    color: #fff;
+    line-height: 1.5em;
+    margin-top: 30px;
+
+    @media (min-width: 1200px) {
+        padding: 1.3em 3em!important;
+    }
+}
+
+//.bubbles .character-name {
+//    color: #00afec;
+//}
+//
+//.flexi .character-name {
+//    color: #ea148c;
+//}
+//
+//.lionstein .character-name {
+//    color: #8562a7;
+//}
+//
+//.misschievous .character-name {
+//    color: #ac46c1;
+//}
+//
+//.tito .character-name {
+//}
+//
+//.lennylucy .character-name {
+//    color: #56b729;
+//}
+
+.ping .character-name {
+}
+
+.categories > div > .row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 1em 0;
+    min-height: 111px;
+}
+
+/**** Character Page Sliders ****/
+
+.owl-carousel {
+    width: 772px;
+}
+
+.owl-wrapper.grabbing [role="button"]{
+    cursor: $hand-grab-cursor;
+}
+
+.owl-item:first-child {
+    margin-left: 40px;
+}
+
+.slider-panel {
+    position: relative;
+}
+
+.slider-panel-caption {
+    background: rgba(151, 51, 135, 0.8);
+    color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0.6em 1em;
+    font-weight: bold;
+    text-align: center;
+    bottom: -20px;
+    opacity: 0;
+    transition: 0.3s;
+    max-height: 67px;
+}
+
+@media (min-width: 530px) {
+    .slider-panel:hover .slider-panel-caption {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 529px) {
+    .owl-item.active .slider-panel-caption {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+.slider-panel-controls {
+    position: absolute;
+    top: -70px;
+    bottom: 140px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.slider-panel-controls-play {
+    background: url(//cdn.bubblesu.com/images/buttons/play-button.png) 50% 32% no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@media (min-width: 530px) {
+    .slider-panel:hover .slider-panel-controls {
+        top: 0;
+        opacity: 1;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 529px) {
+    .owl-item.active .slider-panel-controls {
+        top: 0;
+        opacity: 1;
+        bottom: 0;
+    }
+}
+
+.slider-thumbnail {
+    //    height: 111px;
+    //    width: 140px;
+}
+
+.owl-controls {
+    width: 100%;
+    height: 0;
+    opacity: 1;
+    margin: 0;
+}
+
+.owl-prev::before {
+    content: 'Previous Slide';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.owl-next::before {
+    content: 'Next Slide';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.owl-prev,
+.owl-next {
+    position: absolute;
+    width: 40px;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px center;
+}
+
+.owl-prev {
+    left: 0;
+    background: url(//cdn.bubblesu.com/images/sliders/arrow_left.png) 50% 50% no-repeat;
+    background-size: 35px 35px;
+
+}
+
+.owl-next {
+    right: 0;
+    background: url(//cdn.bubblesu.com/images/sliders/arrow_right.png) 50% 50% no-repeat;
+    background-size: 35px 35px;
+
+}
+
+.owl-prev:after {
+    content: ' ';
+    background: url(//cdn.bubblesu.com/images/sliders/shd.png) right;
+    background-size: auto 100%;
+    display: block;
+    position: absolute;
+    left: 100%;
+    right: -15px;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.owl-next:after {
+    content: ' ';
+    background: url(//cdn.bubblesu.com/images/sliders/shd.png) left;
+    background-size: auto 100%;
+    display: block;
+    position: absolute;
+    right: 100%;
+    left: -15px;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.owl-placeholder {
+    background-size: 173px 133px;
+    background-position: 40px 0;
+}
+
+.owl-carousel.user .owl-placeholder {
+    background-image: url(//cdn.bubblesu.com/images/thumbnails/placeholder-icon.jpg);
+    @media (max-width: 529px) {
+        background-position: 32px 0px;
+    }
+}
+
+.owl-carousel.guest .owl-placeholder {
+    background-image: url(//cdn.bubblesu.com/images/thumbnails/locked-media-icons.jpg);
+}
+
+.thumbnail-share-button,
+.thumbnail-love-button {
+    position: absolute;
+    top: 5px;
+    height: 28px;
+}
+
+.thumbnail-share-button {
+    left: 25%;
+}
+
+.thumbnail-love-button {
+    right: 5px;
+    opacity: 1;
+    z-index: 11;
+}
+
+.thumbnail-play-button {
+    position: absolute;
+}
+
+.thumbnail-love-button.heart-waiting {
+    opacity: 0.5;
+}
+
+#videosSlider .owl-prev, #videosSlider .owl-next {
+    background-color: #933b84;
+}
+
+#gamesSlider .owl-prev, #gamesSlider .owl-next {
+    background-color: #f5a933;
+}
+
+#colorSlider .owl-prev, #colorSlider .owl-next {
+    background-color: #00afec;
+}
+
+#readingSlider .owl-prev, #readingSlider .owl-next {
+    background-color: #a7cd48;
+}
+
+#recipesSlider .owl-prev, #recipesSlider .owl-next {
+    background-color: #ea148c;
+}
+
+#musicSlider .owl-prev, #musicSlider .owl-next {
+    background-color: #3fb34f;
+}
+
+#phonicsSlider .owl-prev, #phonicsSlider .owl-next {
+    background-color: #34b5c9;
+}
+
+#appSlider {
+    width: 100%;
+    margin-bottom: 50px;
+
+    .owl-wrapper-outer {
+        overflow: visible;
+        padding: 0 10px;
+    }
+
+    @media (min-width: 768px) {
+        float: left;
+    }
+    .owl-prev, .owl-next {
+        background-color: #FCDC01;
+    }
+
+    .slider-panel {
+        text-align: center;
+        img {
+            display: inline-block;
+        }
+        &.active:after {
+            content: '';
+            background: url('//cdn.bubblesu.com/images/video_player/green-border.png') no-repeat center;
+            background-size: contain;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform: scale(1.2);
+        }
+    }
+}
+
+.owl-carousel, .character-page .owl-carousel {
+    @media (max-width: 991px) {
+        width: 599px;
+    }
+    @media (min-width: 530px) and (max-width: 670px) {
+        width: 426px;
+    }
+}
+
+.background-sprite {
+    @media (max-width: 991px) {
+        display: none;
+    }
+}
+
+.slider-icon {
+    height: 48px;
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 5px 0 20px;
+    &:hover, &:focus, &:active {
+        -webkit-animation-name: hvr-buzz-out;
+        animation-name: hvr-buzz-out;
+        -webkit-animation-duration: 0.75s;
+        animation-duration: 0.75s;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+    }
+}
+
+@media (min-width: 992px) {
+    .bubblesu .slider-icon {
+        height: 132px;
+        background-position: center;
+    }
+}
+
+.category-video .slider-icon {
+    background-image: url('//cdn.bubblesu.com/images/icons/videos-icon-mobile.png');
+    max-width: 238px;
+}
+
+@media (min-width: 992px) {
+    .bubblesu .category-video .slider-icon {
+        background-image: url('//cdn.bubblesu.com/images/icons/videos-icon.png');
+    }
+}
+
+.category-games .slider-icon {
+    background-image: url('//cdn.bubblesu.com/images/icons/games-icon-mobile.png');
+    max-width: 235px;
+}
+
+@media (min-width: 992px) {
+    .bubblesu .category-games .slider-icon {
+        background-image: url('//cdn.bubblesu.com/images/icons/games-icon.png');
+    }
+}
+
+.category-color .slider-icon {
+    background-image: url('//cdn.bubblesu.com/images/icons/color_create-icon-mobile.png');
+    max-width: 427px;
+}
+
+@media (min-width: 992px) {
+    .bubblesu .category-color .slider-icon {
+        background-image: url('//cdn.bubblesu.com/images/icons/color_create-icon.png');
+    }
+}
+
+.category-music .slider-icon {
+    @media (max-width: 767px) {
+        background-image: url('//cdn.bubblesu.com/images/icons/music-icon-sm.png');
+        max-width: 214px;
+    }
+    @media (min-width: 768px) {
+        background-image: url('//cdn.bubblesu.com/images/icons/music-icon.png');
+    }
+}
+
+.green-page .slider-icon {
+    @media (min-width: 768px) {
+        margin-left: 25px;
+    }
+}
+
+.owl-carousel, .character-page .owl-carousel {
+    @media (max-width: 529px) {
+        width: auto;
+        margin: 0 -15px;
+    }
+}
+
+//.owl-carousel, .character-page .owl-carousel{
+//  @media (max-width: 450px) {
+//    width: 236px;
+//  }
+//}
+
+.owl-item:first-child {
+    @media (max-width: 529px) {
+        margin-left: 32px;
+    }
+}
+
+.owl-prev:after, .owl-next:after {
+    @media (max-width: 529px) {
+        display: none !important;
+    }
+}
+
+.owl-prev {
+    @media (max-width: 529px) {
+        background: url('//cdn.bubblesu.com/images/sliders/arrow_left-mobile.png') no-repeat 50% 50% transparent !important;
+    }
+}
+
+.owl-next {
+    @media (max-width: 529px) {
+        background: url('//cdn.bubblesu.com/images/sliders/arrow_right-mobile.png') no-repeat 50% 50% transparent !important;
+    }
+}
+
+.owl-prev,
+.owl-next {
+    @media (max-width: 529px) {
+        position: absolute;
+        width: 32px;
+        background-size: 27px 27px !important;
+    }
+}
+
+/**** Character Page Animations ****/
+.ui-view-container {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.view-animate-container {
+    position:relative;
+}
+.view-animate {
+    z-index: 1;
+    width: 100%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.view-animate.ng-animate {
+    transition: 0.3s ease-out all;
+}
+
+.view-animate.ng-enter {
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+.view-animate.ng-enter.ng-enter-active {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+}
+
+.view-animate.ng-leave {
+    position: absolute;
+    z-index: 1;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+    top: 0;
+}
+
+.view-animate.ng-leave.ng-leave-active {
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.character-page .categories > div > .row {
+    display: block;
+    margin: 30px 0;
+}
+
+.character-page .categories > div .row > div {
+    padding: 0;
+}
+
+.character-page {
+    @media (min-width: 768px) {
+        background-position: 50% center;
+    }
+}
+
+.character-page {
+    @media (min-width: 992px) {
+        background-position: 60% center;
+    }
+}
+
+.character-page .categories {
+
+}
+
+//.character-page:not(.bubblesu) .categories-container {
+//  background: #a7cd48;
+//  height: auto!important;
+//  position: relative;
+//  overflow: visible;
+//  padding: 1em 0;
+//}
+//.character-page:not(.bubblesu) .categories-container:before {
+//  content: ' ';
+//  position: absolute;
+//  left: 0;
+//  right: 0;
+//  top: -10px;
+//  height:10px;
+//  background: url('//cdn.bubblesu.com/images/background/green_corner.png') top;
+//  background-size: 30px 20px;
+//}
+//.character-page:not(.bubblesu) .categories-container:after {
+//    content: ' ';
+//    position: absolute;
+//    left: 0;
+//    right: 0;
+//    bottom: -10px;
+//    height: 10px;
+//    background: url('//cdn.bubblesu.com/images/background/green_corner.png') bottom;
+//    background-size: 30px 20px;
+//}
+.character-page:not(.bubblesu) .bubblesu-show {
+    display: none;
+}
+
+.character-page.bubblesu .bubblesu-hide {
+    display: none;
+}
+
+
+/********************************************************
+ * 10. Reading Corner and App Showcase
+ ********************************************************/
+#readingCorner {
+    background-image: url('//cdn.bubblesu.com/images/background/read-background-violet.png');
+    background-position: center top;
+    margin-top: -8px;
+    position: relative;
+    #readingBubbles img {
+        height: 320px;
+        bottom: -100px;
+        position: absolute;
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+        transition: bottom 1s cubic-bezier(0.68, -0.55, 0.27, 0);
+    }
+    &.visible #readingBubbles img {
+        bottom: 0;
+    }
+}
+
+.reading-title {
+    margin-bottom: 1em;
+    height: 55px;
+    &:hover, &:focus, &:active {
+        -webkit-animation-name: buzz-out;
+        animation-name: buzz-out;
+        -webkit-animation-duration: 0.75s;
+        animation-duration: 0.75s;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+    }
+}
+
+.reading-corner-container {
+    margin-top: 40px;
+}
+
+#readingSlider {
+    margin-bottom: 50px;
+
+    @media (min-width: 768px) {
+        float: left;
+    }
+}
+
+.upcoming-apps {
+    margin: 2em 0;
+}
+
+.coming-soon {
+    background-color: #933b84;
+    border-radius: 10px;
+    color: #fcdb07;
+    padding: 7px 11px 7px 11px;
+    text-transform: UPPERCASE;
+}
+
+.app-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.dark-gray-page {
+    background: #cdcdcd;
+    padding: 40px 0 0;
+    position: relative;
+}
+
+.banner {
+    margin-bottom: 25px;
+    display: inline-block;
+}
+
+.green-page {
+    background: #a7cd48;
+    height: auto !important;
+    position: relative;
+    overflow: visible;
+    padding: 1em 0;
+}
+
+.green-page:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    height: 10px;
+    background: url('//cdn.bubblesu.com/images/background/green_corner.png') top;
+    background-size: 30px 20px;
+}
+
+.green-page:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 10px;
+    background: url('//cdn.bubblesu.com/images/background/green_corner.png') bottom;
+    background-size: 30px 20px;
+}
+
+.green-page .slider-icon {
+    margin-bottom: 10px;
+}
+
+.green-page .categories > div > .row.category {
+    margin: 15px 0 30px;
+}
+
+.category-music .slider-icon {
+    background-image: url(//cdn.bubblesu.com/images/icons/green-music-icon.png);
+    width: 214px;
+}
+
+.category-recipes .slider-icon {
+    background-image: url(//cdn.bubblesu.com/images/icons/recipes-icon.png);
+    width: 535px;
+
+    @media (max-width: 529px) {
+        background-image: url(//cdn.bubblesu.com/images/icons/recipes-icon-mobile.png);
+        width: 361px;
+    }
+}
+
+.category-phonics .slider-icon {
+    background-image: url(//cdn.bubblesu.com/images/icons/funky-phonics-icon.png);
+    width: 436px;
+}
+
+@media (max-width: 529px) {
+
+    .category-recipes .slider-icon {
+        background-image: url(//cdn.bubblesu.com/images/icons/recipes-icon-mobile.png);
+        width: 535px;
+    }
+}
+
+.green-page .slider-icon {
+    height: 55px;
+    background-position: 0 50%;
+}
+
+.app-store-icons {
+    @media (max-width: 767px) {
+        margin-bottom: 1em;
+    }
+}
+
+/********************************************************
+ * 11. Footer
+ ********************************************************/
+
+.footer,
+.push {
+    clear: both;
+    height: 18em;
+}
+
+.footer {
+    background-color: #933b84;
+    color: #FFF;
+    position: relative;
+    z-index: 3;
+    @media (max-width: 767px) {
+        height: auto;
+    }
+}
+
+
+
+.top-row {
+    background-color: #622558;
+    padding: 7px 0;
+}
+
+.social-icon {
+    float: left;
+    margin: 0 3px;
+}
+
+#exploreLearnPlayGrow {
+    min-height: 32px;
+    padding: 4px 0;
+}
+
+.footer-logo {
+    float: left;
+    margin: 0 2%;
+    width: 46%;
+    @media (max-width: 767px) {
+        margin: 2%;
+    }
+}
+
+.footer-menu {
+    padding: 0;
+}
+
+.footer-menu > li {
+    display: inline-block;
+    padding: 1px 0;
+}
+
+.footer-menu > li a {
+    border-right: 1px solid #FFF;
+    color: #FFF;
+    padding: 0 5px;
+}
+
+.footer-menu > li a:hover {
+    color: #622558;
+}
+
+.footer-menu > li:last-child a {
+    border-right: none;
+}
+
+.bottom-row {
+    margin-top: 1em;
+}
+
+/********************************************************
+ * 12. Modals
+ ********************************************************/
+body.modal-open .body-wrapper,
+body.modal-open .footer {
+    -webkit-filter: blur(50px);
+    filter: blur(50px);
+}
+
+.modal-open .modal-pause {
+    -webkit-animation-play-state: paused !important;
+    animation-play-state: paused !important;
+}
+
+.modal-pause {
+    transform: translateZ(0);
+}
+
+.modal {
+    top: 10px;
+}
+
+.modal-container {
+    border-color: orange;
+    background-color: white;
+    border-style: solid;
+    border-radius: 30px;
+    border-width: 10px;
+}
+
+.modal-content {
+    border: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.modal-dialog,
+.modal-content,
+.modal-body {
+    overflow: hidden;
+}
+
+.modal-title {
+    color: orange;
+    font-family: 'KBPlanetEarth', 'Comic Sans', sans-serif;
+    font-size: 4em;
+    text-shadow: 2px 2px rgba(200, 200, 200, 0.5);
+    -webkit-text-stroke: 1px white;
+}
+
+/**** Signup Modal ****/
+
+.signup-header {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.name-group {
+    margin-bottom: 15px;
+}
+
+.call-to-action .headline {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.call-to-action .sub-headline {
+    font-size: 16px;
+}
+
+/**** Character Messages Modal ****/
+.message-subject {
+    text-transform: capitalize;
+}
+
+.panel-title a {
+    text-decoration: none;
+}
+
+/**** Video Modal ****/
+
+.video-player {
+    position: relative;
+    padding: 42px 44px 42px 80px;
+    .left-right-border {
+        position: absolute;
+        top: 42px;
+        left: 0;
+        bottom: 42px;
+        width: 100%;
+        pointer-events: none;
+        background:
+            url('//cdn.bubblesu.com/images/video_player/left-border-repeat.png') repeat-y 0 0,
+            url('//cdn.bubblesu.com/images/video_player/right-border-repeat.png') repeat-y 100% 0
+    }
+    .top-bottom-border {
+        position: absolute;
+        top: 0;
+        left: 80px;
+        right: 44px;
+        height: 100%;
+        pointer-events: none;
+        background:
+            url('//cdn.bubblesu.com/images/video_player/top-border-repeat.png') repeat-x 0 0,
+            url('//cdn.bubblesu.com/images/video_player/bottom-border-repeat.png') repeat-x 0 100%
+    }
+    .top-left-corner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+    .top-right-corner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        pointer-events: none;
+    }
+    .bottom-left-corner {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+    }
+    .bottom-right-corner {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+    }
+    .video-controls {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -80px;
+        width: 80px;
+        text-align: center;
+    }
+    video {
+        padding: 60px 0;
+        background: #000;
+        width: 100%;
+    }
+    .progress {
+        display: none;
+        position: relative;
+        margin: -40px 35px 30px;
+        height: 10px;
+        background: rgba(255,255,255,.3);
+        border: none;
+        border-radius: 0;
+        overflow: visible;
+        box-shadow: none;
+        cursor: $hand-pointer-cursor;
+        .progress-bar {
+            position: relative;
+            height: 10px;
+            .seek-star {
+                position: absolute;
+                right: -15px;
+                top: -15px
+            }
+            &.no-animation {
+                @include transition(none);
+            }
+        }
+    }
+}
+
+.video-big-button {
+    position: absolute;
+    left: 35%;
+    bottom: 26.5%;
+    width: 30%;
+    cursor: $hand-pointer-cursor;
+}
+
+.video-big-pause {
+    display: none;
+    opacity: 0.75;
+}
+
+.video-menu {
+    padding-left: 0;
+}
+
+.video-menu li {
+    list-style: none;
+    margin: 0.5em 0;
+}
+
+.video-menu li:first-child {
+    margin-top: 0;
+}
+
+li.video-heart .thumbnail-love-button {
+    position: inherit;
+    bottom: inherit;
+    height: inherit;
+}
+
+.video-menu li img {
+    height: 36px;
+    width: 36px;
+    cursor: $hand-pointer-cursor;
+}
+
+.hidden-mobile {
+    @media only screen and (min-width: 320px) and (max-width: 480px) {
+        display: none;
+    }
+}
+
+.mobile-thumbnail {
+    @media only screen and (min-width: 320px) and (max-width: 480px) {
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+.modal-title {
+    @media (max-width: 400px) {
+        font-size: 2.8em;
+    }
+}
+
+.video-modal .modal-dialog {
+    @media (min-width: 768px) {
+        width: 70%;
+    }
+}
+
+.signup-modal .modal-dialog {
+    @media (min-width: 768px) {
+        width: 750px;
+    }
+}
+
+.modal-content {
+    @media (min-width: 768px) {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+/* Games Modal */
+.game-modal .modal-dialog {
+    background-color: orange;
+    border-radius: 6px;
+}
+
+.game-frame {
+    height: 600px;
+    width: 600px;
+    position: relative;
+}
+
+.game-modal .modal-dialog {
+    @media(min-width: 650px) {
+        width: 650px;
+        border-radius: 6px;
+    }
+}
+
+/**** Funky Phonics Modal ****/
+.phonics-modal .modal-title,
+.recipes-modal .modal-title {
+    font-size: 2.5em;
+    @media(max-width: 767px) {
+        font-size: 2em;
+    }
+}
+
+
+.funky-phonics {
+    max-width: 300px;
+
+    @media(max-width: 767px) {
+        width: 150px;
+    }
+}
+
+/**** Recipes Modal ***/
+.btn-recipes {
+    @extend .change-avatar-btn;
+}
+
+
+
+/**** Color and Create Modal ****/
+
+#colorModalSlider {
+    margin: 0 auto;
+}
+
+#colorModalSlider .owl-prev {
+    background-image: url('//cdn.bubblesu.com/images/sliders/left-arrow-purple-tall.png');
+}
+
+#colorModalSlider .owl-next {
+    background-image: url('//cdn.bubblesu.com/images/sliders/right-arrow-purple-tall.png');
+}
+
+#colorModalSlider.owl-carousel {
+    width: 300px;
+    @media(min-width: 768px) {
+        width: 500px;
+    }
+}
+
+#colorModalSlider .owl-item:first-child {
+    margin-left: 60px;
+}
+
+#colorModalSlider .slider-panel {
+    position: relative;
+}
+
+#colorModalSlider .slider-thumbnail {
+    height: 225px;
+    width: 180px;
+    margin: 0 auto;
+    @media(min-width: 768px) {
+        height: 400px;
+        width: 340px;
+    }
+}
+
+#colorModalSlider .owl-controls {
+    position: absolute;
+    width: 100%;
+    opacity: 1;
+    top: 0;
+    margin: 0;
+}
+
+#colorModalSlider .owl-theme .owl-controls .owl-buttons div {
+    /*color: transparent;
+    display: inline-block;
+    zoom: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+    filter: Alpha(Opacity=1);
+    opacity: 1;*/
+}
+
+#colorModalSlider .owl-prev {
+    background-image: url('//cdn.bubblesu.com/images/sliders/left-arrow-purple-tall.png');
+}
+
+#colorModalSlider .owl-next {
+    background-image: url('//cdn.bubblesu.com/images/sliders/right-arrow-purple-tall.png');
+}
+
+#colorModalSlider .owl-prev,
+#colorModalSlider .owl-next {
+    position: absolute;
+    width: 60px;
+    height: 225px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    @media( min-width: 768px ) {
+        height: 400px;
+    }
+}
+
+#coloringPages #printButton img {
+    left: 25px;
+    bottom: 25px;
+    position: relative;
+}
+
+#coloring-page {
+    height: 800px;
+    width: 650px;
+}
+
+img.coloring-page {
+    width: 200px;
+}
+
+.modal-content #printButton {
+    position: relative;
+    left: 20px;
+    bottom: 20px;
+}
+
+#coloringPages .modal-content,
+#cutOuts .modal-content,
+#mazes .modal-content,
+#puzzles .modal-content {
+    border: 10px solid #f4a81c;
+    border-radius: 10px;
+}
+
+#coloringPagesSlider .carousel-control.left {
+    left: unset !important;
+}
+
+#coloringPagesSlider .carousel-control.right {
+    left: unset !important;
+}
+
+#paperAirplanesSlider img.paper-airplane {
+}
+
+#colorModalSlider {
+    @media (max-width: 350px) {
+        width: 205px;
+        .owl-item:first-child {
+            margin-left: 40px;
+        }
+
+        .slider-thumbnail {
+            height: 214px;
+            width: 125px;
+        }
+
+        .owl-prev,
+        .owl-next {
+            width: 40px;
+            height: 214px;
+        }
+    }
+}
+
+/**** Audio Modal ****/
+.audio-controls {
+    min-width: 100%;
+    max-width: 218px;
+}
+
+/********************************************************
+ * 13. My Account Tabs
+ ********************************************************/
+
+.tab-content {
+    border: 1px solid #ddd;
+    border-top: none;
+    margin-bottom: 2em;
+}
+
+.tab-pane {
+    background-color: #FFF;
+    padding: 1em;
+    min-height: 350px;
+}
+
+.nav-tabs > li {
+    @media (max-width: 767px) {
+        width: 33%;
+        font-size: 1.1em;
+        min-height: 65px;
+        text-align: center;
+    }
+
+    & > a {
+        min-height: 65px;
+        text-align: center;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+}
+
+/********************************************************
+ * 14. My Account Tab Content
+ ********************************************************/
+.my-account-header {
+    background-color: #933B84;
+    color: white;
+    margin-bottom: 2em;
+    padding-top: 100px;
+    h1 {
+        font-weight: bold;
+    }
+}
+
+.update-button {
+    margin-top: 1em;
+}
+
+.activity-games-list > div {
+    margin: 5px auto;
+}
+
+#achievements-accordion {
+    margin-top: 1em;
+}
+
+.delete-link {
+    font-size: 0.8em;
+}
+
+.payment-icon {
+    width: 64px;
+}
+
+/********************************************************
+ * 15. Bulletin Board Overrides
+ ********************************************************/
+
+/********************************************************
+ * 16. Static UI Elements
+ ********************************************************/
+.static-page-header {
+    background-color: #622558;
+    color: #FFF;
+    margin-bottom: 0.5em;
+    padding-top: 100px;
+}
+
+.terms-list li p {
+    display: inline-block;
+}
+
+.parents-container {
+    background-color: #1DC4FB;
+    padding-top: 100px;
+    padding-bottom: 2em;
+}
+
+.parent-grid {
+    margin: 2em 0;
+    div {
+        margin: 1em 0;
+    }
+}
+
+/********************************************************
+ * 17. Hamburger menu
+ ********************************************************/
+
+@import "hamburger-menu";
+
+/********************************************************
+ * 18. Rocket
+ ********************************************************/
+
+.rocket {
+    position: relative;
+    height: auto;
+    bottom: 0;
+    z-index: 2;
+    a {
+        display: inline-block;
+        bottom: 0;
+        opacity: 1;
+        &.launch {
+            transition: opacity 1s linear 1s, bottom 3s linear 0s;
+            position: fixed;
+            bottom: 110%;
+            opacity: 0;
+        }
+    }
+    @media (min-width: 768px) {
+        height: 60px;
+        a {
+            position: absolute;
+            bottom: 0;
+            left: 100%;
+            margin-left: -245px;
+            bottom: -200px;
+            transition: all 1s;
+            &:hover {
+                bottom: -100px;
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        height: 512px;
+    }
+}
+
+.banner {
+    padding-top: 15px;
+    display: block;
+    &:hover {
+        animation: .5s buzz infinite;
+    }
+}
+
+.pull-tab {
+    background: transparent url("//cdn.bubblesu.com/images/where-you-can-bu.png") no-repeat;
+    background-position: 250% 50%;
+    transition: all 0.5s;
+    min-height: 180px;
+    .tab {
+        background: transparent url("//cdn.bubblesu.com/images/dont-pull-tab.png") no-repeat;
+        background-position: 30px 50%;
+        position: absolute;
+        height: 100%;
+        width: 100px;
+        margin-left: -100px;
+        transition: all 0.5s;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        cursor: $hand-pointer-cursor;
+    }
+    &.pulled {
+        background-position: 100% 50%;
+        .tab {
+            background-position: 0 50%;
+        }
+    }
+    img {
+        max-width: 100%;
+        @include breakpoint(sm) {
+            width: 400px;
+        }
+    }
+}
+
+#bulletin_placeholder #blt_bulletin_app {
+    padding-top: 100px;
+}
+
+#bulletin_placeholder #blt_achieve_slide {
+    z-index: auto;
+}
+
+.grab-cursor {
+    cursor: $hand-grab-cursor;
+}

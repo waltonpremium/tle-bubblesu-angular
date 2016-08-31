@@ -1,0 +1,54 @@
+
+
+{{#if data.type == 'app' }}
+
+    <div class="blt_sticker_wrapper blt_workflow_app_sticker_to_drag" board_i="{{i}}" sticker_type="app" sticker_opt="{{data.opt}}" style="top: {{y}}%; left:{{x}}%; z-index: {{z}};">
+        <div class=" angle{{data.angle}}">
+            <div class="blt_clipped_item blt_clipped_item_{{data.opt}}" >
+                <div class="blt_clipped_item_magnet"></div>
+
+                <div>
+                    <!--<div class="blt_clipped_item_action blt_clipped_item_action_share" on-click="stickerShare(data)"></div>-->
+                    <div class="blt_clipped_item_action blt_clipped_item_action_play" on-click="stickerPlay(data)"></div>
+                    <!--<div class="blt_clipped_item_action blt_clipped_item_action_heart" on-click="stickerHeart(data)"></div>-->
+                </div>
+
+                <div class="blt_clipped_item_img" style="background-image: url({{img_url}});" ></div>
+            </div>
+        </div>
+    </div>
+{{else}}
+    <div class="blt_sticker_wrapper blt_workflow_sticker_to_drag" board_i="{{i}}" sticker_type="{{data.type}}" sticker_opt="{{data.opt}}" style="top: {{y}}%; left:{{x}}%; z-index: {{z}};">
+        <div class=" angle{{data.angle}}">
+            {{#if data.type == 'letter'}}
+
+                <i class="blt_letter blt_letter-{{data.opt}}" ></i>
+
+
+            {{elseif data.type == 'deco'}}
+
+
+                <div class="blt_sticker blt_sticker_{{data.opt}}" ></div>
+
+
+            {{elseif data.type == 'week'}}
+
+                <div class="blt_sticker_week_sticker" style="background-image: url({{img_url}}); background-size: {{w/10}}em {{h/10}}em; width:{{w/10}}em; height:{{h/10}}em;"></div>
+
+
+            {{elseif data.type == 'avatar'}}
+
+                <div class="blt_sticker_avatar_sticker" style="background-image: url({{img_url}}); background-size: {{w/10}}em {{h/10}}em; width:{{w/10}}em; height:{{h/10}}em;"></div>
+
+
+            {{elseif data.type == 'trophy'}}
+
+                <div class="blt_trophy" >
+                    <div class="blt_trophy_label">{{data.label}}</div>
+                </div>
+
+            {{/if}}
+
+        </div>
+    </div>
+{{/if}}

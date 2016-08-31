@@ -1,0 +1,18 @@
+C:\Users\mattspaulding\Documents\Visual Studio 2015\Projects\BubblesU\BubblesU.Web\bin\AngularJSAuthentication.Web.dll.config
+C:\Users\mattspaulding\Documents\Visual Studio 2015\Projects\BubblesU\BubblesU.Web\bin\AngularJSAuthentication.Web.dll
+C:\Users\mattspaulding\Documents\Visual Studio 2015\Projects\BubblesU\BubblesU.Web\bin\AngularJSAuthentication.Web.pdb
+C:\Users\mattspaulding\Documents\Visual Studio 2015\Projects\BubblesU\BubblesU.Web\obj\Debug\BubblesU.Web.csprojResolveAssemblyReference.cache
+C:\Users\mattspaulding\Documents\Visual Studio 2015\Projects\BubblesU\BubblesU.Web\obj\Debug\AngularJSAuthentication.Web.dll
+C:\Users\mattspaulding\Documents\Visual Studio 2015\Projects\BubblesU\BubblesU.Web\obj\Debug\AngularJSAuthentication.Web.pdb
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu\BubblesU.Web\bin\AngularJSAuthentication.Web.dll.config
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu\BubblesU.Web\bin\AngularJSAuthentication.Web.dll
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu\BubblesU.Web\bin\AngularJSAuthentication.Web.pdb
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu\BubblesU.Web\obj\Debug\BubblesU.Web.csprojResolveAssemblyReference.cache
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu\BubblesU.Web\obj\Debug\AngularJSAuthentication.Web.dll
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu\BubblesU.Web\obj\Debug\AngularJSAuthentication.Web.pdb
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu-angular\BubblesU.Web\bin\AngularJSAuthentication.Web.dll.config
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu-angular\BubblesU.Web\bin\AngularJSAuthentication.Web.dll
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu-angular\BubblesU.Web\bin\AngularJSAuthentication.Web.pdb
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu-angular\BubblesU.Web\obj\Debug\AngularJSAuthentication.Web.dll
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu-angular\BubblesU.Web\obj\Debug\AngularJSAuthentication.Web.pdb
+C:\Users\mattspaulding\Documents\repo\tle-bubblesu-angular\BubblesU.Web\obj\Debug\BubblesU.Web.csprojResolveAssemblyReference.cache
